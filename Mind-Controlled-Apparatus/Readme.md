@@ -12,4 +12,4 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/tensorflow.JPG>  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/car0.JPG><img src=https://github.com/RubensZimbres/Repo-2018/blob/master/Mind-Controlled-Apparatus/Pics/car1.JPG>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/car0.JPG><img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/car1.JPG>  
