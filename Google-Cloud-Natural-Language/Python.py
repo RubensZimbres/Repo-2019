@@ -15,6 +15,8 @@ document = types.Document(
     content=text,
     type=enums.Document.Type.PLAIN_TEXT)
 
+#language='pt-BR'
+
 sentiment = client.analyze_sentiment(document=document).document_sentiment
 
 print('Text: {}'.format(text))
@@ -51,6 +53,8 @@ def syntax_text(text):
         part_of_speech_tag = enums.PartOfSpeech.Tag(token.part_of_speech.tag)
         print(u'{}: {}'.format(part_of_speech_tag.name,
                                token.text.content))
+
+# ONLY ENGLISH        
 def classify_text(text):
     client = language.LanguageServiceClient()
     if isinstance(text, six.binary_type):
@@ -64,6 +68,7 @@ def classify_text(text):
         print(u'{:<16}: {}'.format('name', category.name))
         print(u'{:<16}: {}'.format('confidence', category.confidence))
 
+# ONLY ENGLISH        
 def entity_sentiment_text(text):
     client = language.LanguageServiceClient()
     if isinstance(text, six.binary_type):
