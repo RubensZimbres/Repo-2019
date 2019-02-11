@@ -1,5 +1,8 @@
-# Google Cloud Natural Language
+# Google Cloud Natural Language  
 
+Python code at Python.py  
+
+CURL  
 ``curl -X POST -H "Authorization Bearer: 5/ABCD12345" -H "Content-Type: application/json; charset=utf-8" 
 --data "{'document':{'type':'PLAIN_TEXT','content':'Michelangelo Caravaggio, Italian painter, is known for 
 The Calling of Saint Matthew'},'encodingType':'UTF8'}" 
