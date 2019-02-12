@@ -148,7 +148,6 @@ CREATING
 CREATING
 ACTIVE
 ACTIVE
-predictorName
 
 forecastResponse = forecastquery.get_forecast(
     PredictorName=predictorName,
