@@ -72,7 +72,7 @@ response=forecast.create_dataset(
 predictorName= project+'_predname'
 forecastHorizon = 24
 
-createPredictorResponse=forecast.create_predictor(RecipeName='forecast_',DatasetGroupName= datasetGroupName ,PredictorName=predictorName, 
+createPredictorResponse=forecast.create_predictor(RecipeName='forecast_MQRNN',DatasetGroupName= datasetGroupName ,PredictorName=predictorName, 
   ForecastHorizon = forecastHorizon)
 
 predictorVerionId=createPredictorResponse['VersionId']
