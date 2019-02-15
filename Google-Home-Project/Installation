@@ -24,3 +24,5 @@ pip install google-assistant-sdk
 Activate API
 
 https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview?project=1234567
+
+$ googlesamples-assistant-hotword --project-id home-12345 --device-model-id home-12345-ubuntu-ABCD
