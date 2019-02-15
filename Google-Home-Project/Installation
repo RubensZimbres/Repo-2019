@@ -4,7 +4,7 @@
 ~/anaconda3$ sudo apt-get install portaudio19-dev libffi-dev libssl-dev libmpg123-dev
 ~/anaconda3$ pip install imageio
 
-~/anaconda3$ python -m pip install --upgrade google-assistant-library==1.0.0
+~/anaconda3$ python -m pip install --upgrade google-assistant-library==1.0.1
 
 ~/anaconda3$ python -m pip install --upgrade google-assistant-sdk[samples]==0.5.1
 
@@ -20,3 +20,7 @@ pip install --upgrade google-assistant-sdk[samples]
 pip install google-assistant-library
 pip install google-assistant-grpc
 pip install google-assistant-sdk
+
+Activate API
+
+https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview?project=1234567
