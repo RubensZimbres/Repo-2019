@@ -15,3 +15,8 @@ Setup OAuth2
       --save --headless --client-secrets /path/to/client_secret_client-id.json
       
 $ Enter the authorization code:
+
+pip install --upgrade google-assistant-sdk[samples]
+pip install google-assistant-library
+pip install google-assistant-grpc
+pip install google-assistant-sdk
