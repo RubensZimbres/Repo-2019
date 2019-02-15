@@ -1,0 +1,17 @@
+~/anaconda3$ sudo apt-get update
+~/anaconda3$ sudo apt-get install python3-dev python3-venv
+
+~/anaconda3$ sudo apt-get install portaudio19-dev libffi-dev libssl-dev libmpg123-dev
+~/anaconda3$ pip install imageio
+
+~/anaconda3$ python -m pip install --upgrade google-assistant-library==1.0.0
+
+~/anaconda3$ python -m pip install --upgrade google-assistant-sdk[samples]==0.5.1
+
+Setup OAuth2
+
+~/anaconda3$ google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \
+      --scope https://www.googleapis.com/auth/gcm \
+      --save --headless --client-secrets /path/to/client_secret_client-id.json
+      
+$ Enter the authorization code:
