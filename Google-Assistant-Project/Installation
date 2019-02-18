@@ -33,3 +33,32 @@ $ googlesamples-assistant-hotword --project-id home-12345 --device-model-id home
 
 # Troubleshooting
 https://developers.google.com/assistant/sdk/guides/library/python/embed/run-sample
+
+$ lsusb
+$ aplay -l
+$ arecord -l
+
+vi .asoundrc
+sudo vi /etc/asound.conf
+
+# ADD
+
+pcm.!default {
+  type asym
+  capture.pcm "mic"
+  playback.pcm "speaker"
+}
+pcm.mic {
+  type plug
+  slave {
+    pcm "hw:<card number>,<device number>"
+  }
+}
+pcm.speaker {
+  type plug
+  slave {
+    pcm "hw:<card number>,<device number>"
+  }
+}
+
+$ speaker-test -t wav -c 2
