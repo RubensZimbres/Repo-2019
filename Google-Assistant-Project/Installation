@@ -8,6 +8,8 @@
 
 ~/anaconda3$ python -m pip install --upgrade google-assistant-sdk[samples]==0.5.1
 
+~/anaconda3$ python -m pip install --upgrade google-auth-oauthlib[tool]
+
 Setup OAuth2
 
 ~/anaconda3$ google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \
