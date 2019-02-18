@@ -8,13 +8,15 @@
 
 ~/anaconda3$ python -m pip install --upgrade google-assistant-sdk[samples]==0.5.1
 
+(For Raspberry Pi3 only) : pip3 install google-auth
+
 ~/anaconda3$ python -m pip install --upgrade google-auth-oauthlib[tool]
 
 Setup OAuth2
 
 ~/anaconda3$ google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \
       --scope https://www.googleapis.com/auth/gcm \
-      --save --headless --client-secrets /path/to/client_secret_client-id.json
+      --save --headless --client-secrets ~/Downloads/path/to/client_secret_client-id.json
       
 $ Enter the authorization code:
 
