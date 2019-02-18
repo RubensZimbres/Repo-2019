@@ -62,3 +62,9 @@ pcm.speaker {
 }
 
 $ speaker-test -t wav -c 2
+
+$ arecord --format=S16_LE --duration=5 --rate=16000 --file-type=raw out.raw
+
+$ aplay --format=S16_LE --rate=16000 out.raw
+
+$ python hotword.py --project-id home1234 --device-model-id home-12345-ubuntu-12345
