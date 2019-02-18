@@ -37,6 +37,22 @@ def process_event(event):
     """
     if event.type == EventType.ON_CONVERSATION_TURN_STARTED:
         print()
+    if event.type == EventType.ON_RECOGNIZING_SPEECH_FINISHED:
+        if event.args['text']=='turn lights on':
+            print('Speech Recognized')
+            import RPi.GPIO as GPIO 
+            from time import sleep 
+
+            GPIO.setwarnings(False) 
+            GPIO.setmode(GPIO.BOARD) 
+            GPIO.setup(7, GPIO.OUT, initial=GPIO.LOW) 
+            x=0
+            while x<8:
+                x=x+1
+                GPIO.output(7, GPIO.HIGH) 
+                sleep(1) 
+                GPIO.output(7, GPIO.LOW) 
+                sleep(1) 
 
     print(event)
 
@@ -138,3 +154,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
