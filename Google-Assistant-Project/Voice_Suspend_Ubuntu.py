@@ -44,11 +44,11 @@ def process_event(event):
             import os 
             os.system('systemctl suspend')
 
-        if event.args['text'].lower()=='shut down':
+        if event.args['text'].lower()=='restart':
             print(event.args['text'])
             print('Speech Recognized')
             import os 
-            os.system('sudo reboot')
+            os.system('reboot')
 
     print(event)
 
