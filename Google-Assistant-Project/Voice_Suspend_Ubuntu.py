@@ -44,6 +44,12 @@ def process_event(event):
             import os 
             os.system('systemctl suspend')
 
+        if event.args['text'].lower()=='shut down':
+            print(event.args['text'])
+            print('Speech Recognized')
+            import os 
+            os.system('sudo reboot')
+
     print(event)
 
     if (event.type == EventType.ON_CONVERSATION_TURN_FINISHED and
