@@ -50,6 +50,24 @@ def process_event(event):
             import os 
             os.system('reboot')
 
+        if event.args['text'].lower()=='screenshot':
+            print(event.args['text'])
+            print('Speech Recognized')
+            import os 
+            os.system('python3 scrot.py')
+
+        if event.args['text'].lower()=='text editor':
+            print(event.args['text'])
+            print('Speech Recognized')
+            import os 
+            os.system('gedit')
+
+        if event.args['text'].lower()=='folder':
+            print(event.args['text'])
+            print('Speech Recognized')
+            import os 
+            os.system('xdg-open .')
+
     print(event)
 
     if (event.type == EventType.ON_CONVERSATION_TURN_FINISHED and
