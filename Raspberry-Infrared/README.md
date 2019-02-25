@@ -2,6 +2,6 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Raspberry-Infrared/infrared_schema.png>  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Raspberry-Infrared/infrared_2Rasp.png>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Raspberry-Infrared/rasp_2_infrared.png>  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Raspberry-Infrared/infrared.png>
