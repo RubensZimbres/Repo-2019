@@ -10,7 +10,7 @@
 
 <b>Infrared Raspberry Pi3</b>  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Raspberry-Infrared/infrared_2Rasp.png>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Raspberry-Infrared/rasp_2_infrared.png>  
 
 <b>Isolation Forest</b> for outlier/anomaly detection  
 
