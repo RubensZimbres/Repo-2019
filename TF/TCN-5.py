@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.contrib import rnn
 
-data0=pd.read_csv("qui5_all.csv",sep=',')
+data0=pd.read_csv("quina_all.csv",sep=',')
 
 data=data0.iloc[::-1]
 
@@ -221,17 +221,17 @@ with tf.Session(graph=graph, config=config) as sess:
                 best_val_acc = val_acc
                 save_path = saver.save(sess, "/home/rubens/anaconda3/Dados/model.ckpt")
                 print("Model saved in path: %s" % save_path)
-    pred00 = sess.run([prediction],feed_dict={X: x_test_ok, is_training: False})
 
+
+X001=np.array(dados).reshape(-1,1,5)
 
 with tf.Session(graph=graph, config=config) as session:
     ckpt = "/home/rubens/anaconda3/Dados/model.ckpt"
     saver.restore(session, ckpt)
-    pred00 = session.run([prediction], feed_dict={X: X0, is_training: False})
+    pred00 = session.run([prediction], feed_dict={X: X001, is_training: False})
 
-data
-
-pred01=pred00
+pred00[0][-1]
 
 print(np.floor(pred00[0][-1]))
 print(np.ceil(pred00[0][-1]))
+print(np.floor(pred00[0][-1])-1)
