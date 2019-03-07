@@ -190,8 +190,8 @@ config.gpu_options.allow_growth = False
 config.gpu_options.per_process_gpu_memory_fraction = 0.7
 best_val_acc = 0.85
 timesteps=1
-training_epochs = 70
-batch_size = 300
+training_epochs = 200
+batch_size = X0.shape[0]
 total_batch = int(Y0.shape[1] / batch_size)
 
 X0=trainX.reshape(-1,1,5).astype("float32")
@@ -229,4 +229,9 @@ with tf.Session(graph=graph, config=config) as session:
     saver.restore(session, ckpt)
     pred00 = session.run([prediction], feed_dict={X: X0, is_training: False})
 
-pred00
+data
+
+pred01=pred00
+
+print(np.floor(pred00[0][-1]))
+print(np.ceil(pred00[0][-1]))
