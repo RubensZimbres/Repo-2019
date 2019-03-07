@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.contrib import rnn
 
-data0=pd.read_csv("quina_all.csv",sep=',')
+data0=pd.read_csv("qui5_all.csv",sep=',')
 
 data=data0.iloc[::-1]
 
