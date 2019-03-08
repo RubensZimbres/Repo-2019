@@ -78,4 +78,4 @@ model.fit(x_train_CNN,np.array(y_train2),
                 nb_epoch=15,
                 batch_size=30,verbose=1)
 
-squeeze0.predict_classes(x_train_CNN,verbose=1)
+predictions=np.argmax(model.predict(x_train_CNN,verbose=1),axis=1)
