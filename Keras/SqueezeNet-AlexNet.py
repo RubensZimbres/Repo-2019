@@ -74,8 +74,15 @@ model = Model(inputs = input_img, outputs = squeeze0)
 model.compile(loss='categorical_crossentropy', optimizer=sgd,metrics = ['accuracy'])
 model.summary()
 
+target=np.array(y_train2)
+proportion=[]
+for i in range(0,len(target)):
+    proportion.append([i,len(np.where(target==np.unique(target)[0])[0])/target.shape[0]])
+
+class_weight = dict(proportion)
+
 model.fit(x_train_CNN,np.array(y_train2),
                 nb_epoch=15,
-                batch_size=30,verbose=1)
+                batch_size=30,verbose=1,class_weights=class_weight)
 
 predictions=np.argmax(model.predict(x_train_CNN,verbose=1),axis=1)
