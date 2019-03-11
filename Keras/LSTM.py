@@ -46,6 +46,13 @@ model2=LSTM(128,return_sequences=False)(model1)
 model4=Dense(5, activation='relu')(model2)
 model = Model(inputs = input_img, outputs = model4)
 
+from keras.utils import plot_model
+import pydot
+import graphviz
+import pydot_ng as pydot
+
+plot_model(model,to_file="model.png")
+
 sgd = SGD(lr=learning_rate,momentum=momentum, decay=decay_rate, nesterov=False)
 
 
