@@ -4,4 +4,4 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Microsoft-SQL-Server/Pics/xlsx_create_db.JPG>  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Microsoft-SQL-Server/Pics/query2.png>
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Microsoft-SQL-Server/Pics/query2.png>  
