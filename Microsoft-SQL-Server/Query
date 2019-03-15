@@ -1,4 +1,4 @@
-sp_who [ [ @loginame = ] 'login' | session ID | 'ACTIVE' ]  
+sp_who2
 
 SELECT @@SPID AS 'ID', SYSTEM_USER AS 'Login Name', USER AS 'User Name';  
 
