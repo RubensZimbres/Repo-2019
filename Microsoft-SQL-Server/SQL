@@ -1,0 +1,19 @@
+sp_who [ [ @loginame = ] 'login' | session ID | 'ACTIVE' ]  
+
+SELECT @@SPID AS 'ID', SYSTEM_USER AS 'Login Name', USER AS 'User Name';  
+
+@@SPID
+
+USE MASTER;
+ALTER DATABASE instance SET MULTI_USER
+GO
+
+USE master
+GO
+IF NOT EXISTS (
+   SELECT name
+   FROM sys.databases
+   WHERE name = N'TutorialDB'
+)
+CREATE DATABASE [TutorialDB]
+GO
