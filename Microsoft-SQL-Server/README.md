@@ -15,3 +15,5 @@ https://www.microsoft.com/en-us/download/details.aspx?id=54920
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Microsoft-SQL-Server/Pics/query1.5.png>  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Microsoft-SQL-Server/Pics/query2.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Microsoft-SQL-Server/Pics/query4.png>  
