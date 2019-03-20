@@ -43,10 +43,10 @@ with tf.Session() as sess:
     mean_minus_2_std = sess.run(mean + 2. * stddev)
 
 
-plt.figure(figsize=(12,10))
+plt.figure(figsize=(10,7))
 plt.plot(y,color='red',linewidth=1,label='Real Data')
-#plt.plot(mm)
-plt.plot(mean_minus_2_std,color='blue',linewidth=0.6,label='Predicted + 2 std dev')
-plt.plot(mean_plus_2_std,color='green',linewidth=0.6,label='Predicted - 2 std dev')
+#plt.plot(mm,color='green',linewidth=1,label='Real Data')
+plt.plot(np.concatenate([y,mean_minus_2_std],axis=0),color='blue',linewidth=0.6,label='Predicted + 2 std dev')
+plt.plot(np.concatenate([y,mean_plus_2_std],axis=0),color='green',linewidth=0.6,label='Predicted - 2 std dev')
 plt.legend()
 plt.show()
