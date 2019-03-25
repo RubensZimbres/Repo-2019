@@ -14,3 +14,18 @@ LEFT JOIN database3.dbo.Diario
 ON CallsDia.Nome=Diario.NOME WHERE CallsDia.DATA_ABERTURA_SUPORTE>'2018-04-29' 
 AND DATA_ABERTURA_VISITA IS NOT NULL AND VISITA_STATUS IS NOT NULL 
 GROUP BY VISITA_STATUS ORDER BY "Soma Consolidada"
+
+
+
+CREATE TABLE TabelaDados (
+    ID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255) 
+)
+
+
+
+INSERT INTO TabelaDados(ID,LastName,FirstName,Address,City)
+VALUES ('128', 'da Silva', 'José','Rua do Rócio, 122', 'São Paulo');
