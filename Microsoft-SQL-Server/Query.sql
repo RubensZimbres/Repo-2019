@@ -35,6 +35,10 @@ select suser_sname(owner_sid) as 'Owner', state_desc, *
 from sys.databases
 
 
+aws rds modify-db-parameter-group --db-parameter-group-name groupname --parameters 
+"ParameterName='clr enabled',ParameterValue=1,ApplyMethod=immediate"
+
+
 EXEC sp_configure 'external scripts enabled', 1;  
 RECONFIGURE WITH OVERRIDE; 
 GO
