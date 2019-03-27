@@ -29,3 +29,19 @@ CREATE TABLE TabelaDados (
 
 INSERT INTO TabelaDados(ID,LastName,FirstName,Address,City)
 VALUES ('128', 'da Silva', 'José','Rua do Rócio, 122', 'São Paulo');
+
+EXEC sp_configure 'external scripts enabled', 1;  
+RECONFIGURE WITH OVERRIDE; 
+GO
+
+#RESTART
+
+EXEC sp_configure  'external scripts enabled';
+Go
+
+execute sp_execute_external_script 
+@language = N'Python',
+@script = N'
+l = [15, 18, 2, 36, 12, 78, 5, 6, 9]
+print(sum(l) / float(len(l)))
+'
