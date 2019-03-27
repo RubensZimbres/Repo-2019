@@ -30,6 +30,11 @@ CREATE TABLE TabelaDados (
 INSERT INTO TabelaDados(ID,LastName,FirstName,Address,City)
 VALUES ('128', 'da Silva', 'José','Rua do Rócio, 122', 'São Paulo');
 
+
+select suser_sname(owner_sid) as 'Owner', state_desc, *
+from sys.databases
+
+
 EXEC sp_configure 'external scripts enabled', 1;  
 RECONFIGURE WITH OVERRIDE; 
 GO
