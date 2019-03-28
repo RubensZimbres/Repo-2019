@@ -30,6 +30,9 @@ CREATE TABLE TabelaDados (
 INSERT INTO TabelaDados(ID,LastName,FirstName,Address,City)
 VALUES ('128', 'da Silva', 'José','Rua do Rócio, 122', 'São Paulo');
 
+ALTER TABLE TempDados ALTER COLUMN Timestamp date
+DELETE FROM TempDados WHERE Temperature='45'
+SELECT * FROM raspberry.dbo.TempDados
 
 select suser_sname(owner_sid) as 'Owner', state_desc, *
 from sys.databases
