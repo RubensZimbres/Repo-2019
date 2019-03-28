@@ -38,6 +38,10 @@ from sys.databases
 aws rds modify-db-parameter-group --db-parameter-group-name groupname --parameters 
 "ParameterName='clr enabled',ParameterValue=1,ApplyMethod=immediate"
 
+CREATE LOGIN rubens WITH PASSWORD 'rubens';
+GO
+EXEC sp_addsrvrolemember 'rubens', 'sysadmin';
+GO
 
 EXEC sp_configure 'external scripts enabled', 1;  
 RECONFIGURE WITH OVERRIDE; 
