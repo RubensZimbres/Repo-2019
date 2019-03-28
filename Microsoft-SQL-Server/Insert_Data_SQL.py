@@ -10,8 +10,8 @@ cursor = cnxn.cursor()
 
 cursor.execute('''
 
-                INSERT INTO TabelaDados(ID,LastName,FirstName,Address,City)
-VALUES ('128', 'Marques', 'Maria','Av Faria Lima, 777', 'São Paulo');
+                INSERT INTO TabelaDados(ID,LastName,FirstName,Address,City,Timestamp)
+VALUES ('128', 'Marques', 'Maria','Av Faria Lima, 777', 'São Paulo',GETDATE());
 
                 ''')
 
