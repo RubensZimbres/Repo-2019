@@ -23,3 +23,9 @@ row = cursor.fetchone()
 while row:
     print(row)
     row = cursor.fetchone()
+
+    
+    
+    
+    
+cursor.execute('INSERT INTO TempDados(Temperature,Timestamp) VALUES ({}, GETDATE())'.format(68.1))
