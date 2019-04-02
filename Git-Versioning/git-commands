@@ -37,6 +37,8 @@ git log Hello1.py
 
 ### DEVELOP -- RESTORE PREVIOUS VERSION
 
+git pull https://github.com/RubensZimbres/TestePush master
+
 git checkout -b c9f55653
 
 git commit -m "restoring previous version 22"
