@@ -25,3 +25,27 @@ git diff origin/master
 @@ -1 +1 @@
 -print("Hello World 22")
 +print("Hello World 44")
+
+git commit -m "added while"
+
+git push -u origin master
+
+git log Hello1.py
+
+
+
+
+### DEVELOP -- RESTORE PREVIOUS VERSION
+
+git checkout -b c9f55653
+
+git commit -m "restoring previous version 22"
+
+git cherry-pick c9f5565.....
+
+git checkout origin/master
+
+git add Hello1.py
+
+git push -u origin master
+
