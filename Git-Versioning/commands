@@ -1,0 +1,17 @@
+git config --global user.name "RubensZimbres"
+
+git config --global user.email "rubens.zimbres@eclipso.de"
+
+git init
+
+git remote add origin https://github.com/RubensZimbres/TestePush
+
+git pull
+
+git status
+
+git add Hello1.py
+
+git commit -m "initial commit"
+
+git push -u origin master
