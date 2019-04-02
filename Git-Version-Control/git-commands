@@ -1,6 +1,6 @@
-git config --global user.name "RubensZimbres"
+git config --global user.name "username"
 
-git config --global user.email "rubens.zimbres@eclipso.de"
+git config --global user.email "email@mail.com"
 
 git init
 
@@ -33,21 +33,12 @@ git push -u origin master
 git log Hello1.py
 
 
-
-
 ### DEVELOP -- RESTORE PREVIOUS VERSION
 
-git pull https://github.com/RubensZimbres/TestePush master
-
-git checkout -b c9f55653
+git checkout master
 
 git commit -m "restoring previous version 22"
 
-git cherry-pick c9f5565.....
-
-git checkout origin/master
-
-git add Hello1.py
-
 git push -u origin master
 
+git revert c9f5565
