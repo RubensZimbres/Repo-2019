@@ -39,3 +39,11 @@ git rebase -i HEAD~1
 CTRL+X Y
 
 git push origin +0abc3e7:master
+
+
+## COMMIT
+
+git init
+git add Hello1.py
+git commit -m "added x"
+git push -u origin master
