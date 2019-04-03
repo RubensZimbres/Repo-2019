@@ -17,15 +17,9 @@ VALUES ('128', 'Marques', 'Maria','Av Faria Lima, 777', 'São Paulo',GETDATE());
 
 cnxn.commit()
 
-cursor.execute("SELECT * FROM Database4.dbo.TabelaDados;")
-
-row = cursor.fetchone()
-while row:
-    print(row)
-    row = cursor.fetchone()
-
-    
-    
+rows=cursor.execute("SELECT * FROM Database4.dbo.TabelaDados;")
+for x in rows:
+    print(x)
     
     
 cursor.execute('INSERT INTO TempDados(Temperature,Timestamp) VALUES ({}, GETDATE())'.format(68.1))
