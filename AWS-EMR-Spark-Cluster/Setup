@@ -1,5 +1,7 @@
 # AWS EMR  
 
+$ chmod 400 KeyPair.pem
+
 EC2 Instance - Security Groups - Inbound Rules - TCP/IP Port 22  
 
 $ wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh  
