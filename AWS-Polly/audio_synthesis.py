@@ -18,7 +18,7 @@ obj=task_status['SynthesisTask']['OutputUri'][57:]
 
 s3 = boto3.client('s3')
 
-s3.download_file(Bucket='synth-books-buckets22',Key=obj,Filename=obj)
+s3.download_file(Bucket='synth-books',Key=obj,Filename=obj)
 
 from pygame import mixer
 
