@@ -22,5 +22,4 @@ $ python run_classifier.py --task_name=cola --do_train=false -–do_eval=true
 --max_seq_length=400 --train_batch_size=8  --learning_rate=2e-5 –num_train_epochs=3.0   
 --output_dir=/home/rubens/anaconda3/BERT/bert_output/ --do_lower_case=False  
 
-<img src=<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert_running.png>
->
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert_running.png>  
