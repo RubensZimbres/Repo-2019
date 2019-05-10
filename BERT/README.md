@@ -12,7 +12,7 @@ $ python format.py
 
 <b>Folder Structure</b>  
 
-<img src=>
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert_folder.png>
 
 $ python run_classifier.py --task_name=cola --do_train=false -–do_eval=true  
 --do_predict=true --data_dir=/home/rubens/anaconda3/BERT/data/ 
