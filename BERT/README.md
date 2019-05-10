@@ -15,11 +15,11 @@ $ python format.py
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert_folder.png>  
 
 $ python run_classifier.py --task_name=cola --do_train=true -–do_eval=true  
---do_predict=true --data_dir=/home/rubens/anaconda3/BERT/data/  
---vocab_file=/home/rubens/anaconda3/BERT/multi_cased_L-12_H-768_A-12/vocab.txt   
---bert_config_file=/home/rubens/anaconda3/BERT/multi_cased_L-12_H-768_A-12/bert_config.json   
---init_checkpoint=/home/rubens/anaconda3/BERT/multi_cased_L-12_H-768_A-12/bert_model.ckpt   
+--do_predict=true --data_dir=/home/ubuntu/anaconda3/BERT/data/  
+--vocab_file=/home/ubuntu/anaconda3/BERT/multi_cased_L-12_H-768_A-12/vocab.txt   
+--bert_config_file=/home/ubuntu/anaconda3/BERT/multi_cased_L-12_H-768_A-12/bert_config.json   
+--init_checkpoint=/home/ubuntu/anaconda3/BERT/multi_cased_L-12_H-768_A-12/bert_model.ckpt   
 --max_seq_length=400 --train_batch_size=8  --learning_rate=2e-5 –num_train_epochs=3.0   
---output_dir=/home/rubens/anaconda3/BERT/bert_output/ --do_lower_case=False  
+--output_dir=/home/ubuntu/anaconda3/BERT/bert_output/ --do_lower_case=False  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert_running.png>  
