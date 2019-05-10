@@ -119,3 +119,14 @@ if __name__ == "__main__":
             
     # Display the image
     image.show()
+
+p = response
+from ast import literal_eval
+d = literal_eval(str(p))
+
+blocks=response['Blocks']
+for i in range(2,len(blocks)):
+    try:
+        print(blocks[i]['Text'])
+    except:
+        pass
