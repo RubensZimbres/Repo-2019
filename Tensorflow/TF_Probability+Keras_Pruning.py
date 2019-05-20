@@ -28,6 +28,8 @@ tfd = tfp.distributions
 
 init = tf.global_variables_initializer()
 
+epochs=1000
+
 with tf.Session() as sess:
     sess.run(init)
 
@@ -39,7 +41,7 @@ with tf.Session() as sess:
     
     model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.0001), loss=negloglik)
 
-    model.fit(x1,y, epochs=50, verbose=True, batch_size=16)
+    model.fit(x1,y, epochs=epochs, verbose=True, batch_size=16)
     
     yhat = model(np.array(dataframe.iloc[:,1]).T.astype(np.float32).reshape(-1,1)[351:450])
     mean0 = tf.convert_to_tensor(yhat)
@@ -57,15 +59,15 @@ import numpy as np
 #from tensorflow_model_optimization.python.core.sparsity.keras import pruning_schedule
 #ConstantSparsity = pruning_schedule.ConstantSparsity
 
-epochs = 50
+epochs = 1000
 num_train_samples = x1.shape[0]
-end_step = 500
+end_step = 1000
 print('End step: ' + str(end_step))
 
 pruning_params = {
       'pruning_schedule': sparsity.PolynomialDecay(initial_sparsity=0.50,
                                                    final_sparsity=0.90,
-                                                   begin_step=20,
+                                                   begin_step=700,
                                                    end_step=end_step,
                                                    frequency=100)
 }
@@ -97,7 +99,7 @@ with tf.Session() as sess:
 
     pruned_model.compile(optimizer=tf.keras.optimizers.Adam(lr=0.0001), loss=negloglik)
 
-    pruned_model.fit(x1,y, epochs=50, verbose=True, batch_size=16,callbacks=callbacks)
+    pruned_model.fit(x1,y, epochs=epochs, verbose=True, batch_size=16,callbacks=callbacks)
     
     yhat2 = pruned_model(np.array(dataframe.iloc[:,1]).T.astype(np.float32).reshape(-1,1)[351:450])
     mean02 = tf.convert_to_tensor(yhat2)
