@@ -66,7 +66,7 @@ print('End step: ' + str(end_step))
 
 pruning_params = {
       'pruning_schedule': sparsity.PolynomialDecay(initial_sparsity=0.50,
-                                                   final_sparsity=0.90,
+                                                   final_sparsity=0.10,
                                                    begin_step=700,
                                                    end_step=end_step,
                                                    frequency=100)
