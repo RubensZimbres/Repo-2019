@@ -1,6 +1,6 @@
 import requests
 
-KERAS_REST_API_URL = "https://us-central2-project02-12345.cloudfunctions.net/test-function"
+REST_API_URL = "https://location-project02-12345.cloudfunctions.net/test-function"
 
 from google.cloud import storage
 
@@ -17,6 +17,6 @@ with open("dog22.jpg", 'rb') as f:
 
 payload = {"image": image}
 
-r = requests.post(KERAS_REST_API_URL, files=payload).json()
+r = requests.post(REST_API_URL, files=payload).json()
 
 print(r)
