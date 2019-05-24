@@ -2,7 +2,9 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/prob001.JPG>
 
-# Issue regarding compatibility of Tensorflow Model Optimization and Tensorflow Probability in Ubuntu for Tensorflow==2.0.0a0
+# Issue regarding compatibility of Tensorflow Model Optimization and Tensorflow Probability in Ubuntu for Tensorflow==2.0.0a0  
+
+https://github.com/tensorflow/tensorflow/issues/28801
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/TF_issue_0.png>  
 
