@@ -27,7 +27,7 @@ $ export BERT_BASE_DIR=/home/BERT
 
 $ python run_classifier.py --task_name=cola --do_train=false -–do_eval=true --do_predict=true --data_dir=/home/BERT/data/ --vocab_file=/home/BERT/multi_cased_L-12_H-768_A-12/vocab.txt --bert_config_file=/home/BERT/multi_cased_L-12_H-768_A-12/bert_config.json --init_checkpoint=/home/BERT/multi_cased_L-12_H-768_A-12/bert_model.ckpt --max_seq_length=100 --learning_rate=2e-5 --num_train_epochs=3.0 --output_dir=/home/BERT/bert_output/ --do_lower_case=False
 
-$ try $ python run_classifier.py --task_name=cola --do_train=false -–do_eval=true --do_predict=true --data_dir=/home/BERT/data/ --vocab_file=/home/BERT/multi_cased_L-12_H-768_A-12/vocab.txt --bert_config_file=/home/BERT/multi_cased_L-12_H-768_A-12/bert_config.json --init_checkpoint=/home/BERT/multi_cased_L-12_H-768_A-12/bert_model.ckpt --max_seq_length=100 --learning_rate=2e-5 --num_train_epochs=3.0 --output_dir=/home/BERT/bert_output/ --do_lower_case=False --load_all_detection_checkpoint_vars: true --batch_size=128
+$ try $ python run_classifier.py --task_name=cola --do_train=false -–do_eval=true --do_predict=true --data_dir=/home/BERT/data/ --vocab_file=/home/BERT/multi_cased_L-12_H-768_A-12/vocab.txt --bert_config_file=/home/BERT/multi_cased_L-12_H-768_A-12/bert_config.json --init_checkpoint=/home/BERT/multi_cased_L-12_H-768_A-12/bert_model.ckpt --max_seq_length=400 --learning_rate=2e-5 --num_train_epochs=3.0 --output_dir=/home/BERT/bert_output/ --do_lower_case=False --load_all_detection_checkpoint_vars: true --batch_size=128 use_tpu=true
 
 ```
 
