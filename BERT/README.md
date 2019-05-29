@@ -16,7 +16,11 @@ $ python format.py
 
 <b>Folder Structure</b>  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert_folder.png>  
+-|-bert
+ |-bert_output
+ |-data
+ |-multi_cased_L-12_H-768_A-12
+
 
 ```
 $ export BERT_BASE_DIR=/home/BERT
