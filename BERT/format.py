@@ -19,6 +19,6 @@ df_test = pd.read_csv("/home/BERT/test.csv")
 BERT_test = pd.DataFrame({'User_ID':df_test['User_ID'],
                  'text':df_test['Description'].replace(r'\n',' ',regex=True)})
  
-BERT_train.to_csv('/home/BERT/data/train0.tsv', sep='\t', index=False, header=False)
-BERT_dev.to_csv('/home/BERT/data/dev0.tsv', sep='\t', index=False, header=False)
-BERT_test.to_csv('/home/BERT/data/test0.tsv', sep='\t', index=False, header=True)
+BERT_train.to_csv('/home/BERT/data/train.tsv', sep='\t', index=False, header=False)
+BERT_dev.to_csv('/home/BERT/data/dev.tsv', sep='\t', index=False, header=False)
+BERT_test.to_csv('/home/BERT/data/test.tsv', sep='\t', index=False, header=True)
