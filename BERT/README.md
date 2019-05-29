@@ -16,10 +16,10 @@ $ python format.py
 
 <b>Folder Structure</b>  
 
--|-bert
- |-bert_output
- |-data
- |-multi_cased_L-12_H-768_A-12
+-|-bert  
+ |-bert_output  
+ |-data  
+ |-multi_cased_L-12_H-768_A-12  
 
 
 ```
