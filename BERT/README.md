@@ -1,6 +1,7 @@
 # BERT Model for Natural Language Processing - Google Research
 
-```$ sudo chmod -R 777 /home
+```
+$ sudo chmod -R 777 /home
 
 $ mkdir BERT  
 
