@@ -25,7 +25,7 @@ $ python format.py
 ```
 $ export BERT_BASE_DIR=gs://bert_models/2018_10_18/uncased_L-12_H-768_A-12
 
-$ kg $ rubensvectomobile@cloudshell:/home/BERT/bert (machinelearning-240820)$ python run_classifier.py --task_name=cola --do_train=True -–do_eval=False --do_predict=False --data_dir=/home/BERT/data --vocab_file=/home/BERT/uncased_L-12_H-768_A-12/vocab.txt --bert_config_file=/home/BERT/uncased_L-12_H-768_A-12/bert_config.json --init_checkpoint=/home/BERT/uncased_L-12_H-768_A-12/bert_model.ckpt --max_seq_length=50  --output_dir=/home/BERT/bert_output/ --do_lower_case=True --save_checkpoints_steps=99999999 --train_batch_size=1 --learning_rate=2e-5 --num_train_epochs=1 --use_tpu=False --master="" --iterations_per_loop=1000 --tpu_cluster_resolver=None --eval_batch_size=1 --predict_batch_size=1 --warmup_proportion=0.1
+$ python run_classifier.py --task_name=cola --do_train=True -–do_eval=False --do_predict=False --data_dir=/home/BERT/data --vocab_file=/home/BERT/uncased_L-12_H-768_A-12/vocab.txt --bert_config_file=/home/BERT/uncased_L-12_H-768_A-12/bert_config.json --init_checkpoint=/home/BERT/uncased_L-12_H-768_A-12/bert_model.ckpt --max_seq_length=50  --output_dir=/home/BERT/bert_output/ --do_lower_case=True --save_checkpoints_steps=99999999 --train_batch_size=1 --learning_rate=2e-5 --num_train_epochs=1 --use_tpu=False --master="" --iterations_per_loop=1000 --tpu_cluster_resolver=None --eval_batch_size=1 --predict_batch_size=1 --warmup_proportion=0.1
 
 ```
 
