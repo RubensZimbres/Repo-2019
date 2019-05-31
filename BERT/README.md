@@ -37,8 +37,8 @@ $$ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_
 ```
 
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert1.png>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert1.JPG>  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert00.png>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert00.JPG>  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert05.png>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert05.JPG>  
