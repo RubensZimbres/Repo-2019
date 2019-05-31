@@ -5,7 +5,7 @@ $ sudo chmod -R 777 /home
 
 $ mkdir BERT  
 
-$ wget https://storage.googleapis.com/bert_models/2018_11_23/multi_cased_L-12_H-768_A-12.zip
+$ wget https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip
 
 $ git clone https://github.com/google-research/bert.git  
 
