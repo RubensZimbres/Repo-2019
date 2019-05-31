@@ -33,7 +33,7 @@ $ python format.py
 ```
 $ export BERT_BASE_DIR=gs://bert_models/2018_10_18/uncased_L-12_H-768_A-12
 
-$$ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu/bert_config.json --vocab_file=gs://tpu/vocab.txt --init_checkpoint=gs://tpu/bert_model.ckpt --data_dir=/home/BERT/data --output_dir=/home/BERT/bert_output --do_lower_case=True --max_seq_length=72 --do_train=True --do_eval=True --do_predict=True --train_batch_size=32 --eval_batch_size=32 --predict_batch_size=32 --learning_rate=2e-5 --num_train_epochs=3.0 --warmup_proportion=0.1 --use_tpu=True --save_checkpoints_steps=1 --iterations_per_loop=1000 --num_tpu_cores=8 --tpu_name=rubensblablabla
+$$ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_config.json --vocab_file=gs://tpu22/vocab.txt --init_checkpoint=gs://tpu22/bert_model.ckpt --data_dir=/home/BERT/data --output_dir=gs://tpu22/tpu-output --do_lower_case=True --max_seq_length=400 --do_train=True --do_eval=True --do_predict=True --train_batch_size=512 --eval_batch_size=512 --predict_batch_size=512 --learning_rate=2e-5 --num_train_epochs=3.0 --warmup_proportion=0.1 --use_tpu=True --save_checkpoints_steps=1 --iterations_per_loop=1000 --num_tpu_cores=8 --tpu_name=rubens
 ```
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert0.png>  
