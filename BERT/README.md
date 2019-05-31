@@ -22,10 +22,15 @@ $ wget https://he-s3.s3.amazonaws.com/media/hackathon/predict-the-happiness/pred
 $ python format.py
 ```  
 
-<b>Folder Structure</b>  
+<b>Local Folder Structure</b>  
 
 -|-bert  
 -|-data  
+
+<b>GCP Storage Folder Structure</b>  
+
+-|-tpu22  
+---|-tpu-output  
 
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/ctpu11.png>  
