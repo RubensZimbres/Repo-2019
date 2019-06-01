@@ -1,4 +1,6 @@
-# BERT Model for Natural Language Processing - Google Research
+# BERT Model for Natural Language Processing - Google Research  
+
+Tutorial at: https://www.linkedin.com/feed/update/urn:li:article:7199689357226496574/  
 
 ```
 $ ctpu up
