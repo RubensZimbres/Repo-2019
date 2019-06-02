@@ -15,6 +15,8 @@ $ sudo chmod -R 777 /home
 
 $ mkdir BERT 
 
+$ wget https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/BERT/format.py
+
 BERT$ mkdir data
 
 ```
