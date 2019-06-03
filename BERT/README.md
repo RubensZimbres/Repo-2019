@@ -2,6 +2,8 @@
 
 Tutorial at: https://www.linkedin.com/feed/update/urn:li:article:7199689357226496574/  
 
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert_git.png>  
+
 ```
 $ ctpu up
 
