@@ -100,7 +100,7 @@ $ wget https://github.com/allenai/bi-att-flow/blob/master/squad/evaluate-v1.1.py
 
 $ python run_squad.py --bert_config_file=gs://tpu-large/bert_config.json --vocab_file=gs://tpu-large/vocab.txt  
 --init_checkpoint=gs://tpu-large/bert_model.ckpt --data_dir=/home/data --output_dir=gs://tpu-squad/tpu-squad-output  
---max_seq_length=384 --do_train=True --do_predict=True --train_batch_size=24 --predict_batch_size=24 --learning_rate=1.5e-5  
+--max_seq_length=384 --do_train=True --do_predict=True --train_batch_size=24 --predict_batch_size=24 --learning_rate=1e-5  
 --num_train_epochs=2.0 --use_tpu=True --save_checkpoints_steps=1 --iterations_per_loop=1000 --num_tpu_cores=8  
 --train_file=/home/train-v1.1.json --predict_file=/home/dev-v1.1.json --doc_stride=128 --tpu_name=rubens
 
