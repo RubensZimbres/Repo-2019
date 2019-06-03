@@ -89,7 +89,7 @@ $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu-large/be
 
 <img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/BERT/Pics/3epochs_Large.png>
 
-# Squad Fine Tuning - Question Pairs
+# SQuAD Fine Tuning - Question Pairs
 
 ```
 $ wget https://rajpurkar.github.io/SQuAD-explorer/dataset/train-v1.1.json
@@ -108,3 +108,7 @@ $ python evaluate-v1.1.py dev-v1.1.json /home/squad/predictions.json
 ```
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/squad_both.png>  
+
+<b>SQuAD Training</b>
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/squad_training.png>  
