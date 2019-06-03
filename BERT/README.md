@@ -109,6 +109,22 @@ $ python evaluate-v1.1.py dev-v1.1.json /home/squad/predictions.json
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/squad_both.png>  
 
-<b>SQuAD Training</b>
+<b>SQuAD Training</b>  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/squad_training2.png>  
+
+<b>Restoring checkpoints from training</b>  
+
+```
+$ python run_squad.py --bert_config_file=gs://tpu-large/bert_config.json --vocab_file=gs://tpu-large/vocab.txt  
+--init_checkpoint=gs://tpu-squad/tpu-squad-output/model.ckpt-5000.index --data_dir=/home/data  
+--output_dir=gs://tpu-squad/tpu-squad-output --max_seq_length=384 --do_train=False --do_predict=True  
+--train_batch_size=24 --predict_batch_size=24 --use_tpu=True --save_checkpoints_steps=1 --iterations_per_loop=1000  
+--num_tpu_cores=8 --tpu_name=rubens --train_file=/home/train-v1.1.json --predict_file=/home/dev-v1.1.json  
+--doc_stride=128
+
+$ gsutil cp gs://tpu-squad/tpu-squad-output/predictions.json predictions.json
+
+$ python /home/evaluate-v1.1.py /home/dev-v1.1.json predictions.json
+
+```
