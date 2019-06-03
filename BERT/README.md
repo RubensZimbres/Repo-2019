@@ -111,4 +111,4 @@ $ python evaluate-v1.1.py dev-v1.1.json /home/squad/predictions.json
 
 <b>SQuAD Training</b>
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/squad_training.png>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/squad_training2.png>  
