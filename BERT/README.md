@@ -129,4 +129,7 @@ $ gsutil cp gs://tpu-squad/tpu-squad-output/predictions.json predictions.json
 
 $ python /home/evaluate-v1.1.py /home/dev-v1.1.json predictions.json
 
-```
+```  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/final_squad1.png>  
+
