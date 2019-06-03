@@ -88,3 +88,15 @@ $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu-large/be
 <img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/BERT/Pics/large.png>  
 
 <img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/BERT/Pics/3epochs_Large.png>
+
+# Squad Fine Tuning - Quora Question Pairs
+
+```
+$ wget https://rajpurkar.github.io/SQuAD-explorer/dataset/train-v1.1.json
+
+$ wget https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v1.1.json
+
+$ wget https://github.com/allenai/bi-att-flow/blob/master/squad/evaluate-v1.1.py
+
+$ python run_squad.py --bert_config_file=gs://tpu-large/bert_config.json --vocab_file=gs://tpu-large/vocab.txt --init_checkpoint=gs://tpu-large/bert_model.ckpt --data_dir=/home/data --output_dir=gs://tpu-squad/tpu-squad-output --max_seq_length=384 --do_train=True --do_predict=True --train_batch_size=12 --predict_batch_size=12 --learning_rate=3e-6 --num_train_epochs=3.0 --use_tpu=True --save_checkpoints_steps=1 --iterations_per_loop=1000 --num_tpu_cores=8 --train_file=/home/train-v1.1.json --predict_file=dev-v1.1.json --tpu_name=rubens
+```
