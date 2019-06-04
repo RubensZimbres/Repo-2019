@@ -1,5 +1,11 @@
 # 2019 Python Codes  
 
+# Google Research BERT: Bidirectional Encoder Representations from Transformers - Positional Encodings  
+
+<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Mathematics/Pics/cylinder.png>   
+
+<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Mathematics/Pics/sin_goo.png>  
+
 <b>Pull Request to Microsoft's PySpark Predictive Maintenance model</b>    
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Spark/Pull_request_MS/Azure_Pull_Request.png>  
@@ -27,7 +33,3 @@
 <img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Mathematics/Pics/cone.png>  
 
 <img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Mathematics/Pics/paraboloid.png>  
-
-<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Mathematics/Pics/cylinder.png>  
-
-<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Mathematics/Pics/sin_goo.png>
