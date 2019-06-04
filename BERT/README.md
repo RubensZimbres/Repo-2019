@@ -71,6 +71,18 @@ $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_c
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert05.JPG>  
 
+# Sentence (and sentence-pair) classification tasks  
+
+```
+$ wget https://gist.githubusercontent.com/W4ngatang/60c2bdb54d156a41194446737ce03e2e/raw/17b8dd0d724281ed7c3b2aeeda662b92809aadd5/download_glue_data.py
+
+$ python3 download_glue_data.py --data_dir glue_data --tasks all
+
+$ python run_classifier.py --task_name=MRPC --bert_config_file=gs://tpu22/bert_config.json --vocab_file=gs://tpu22/vocab.txt --init_checkpoint=gs://tpu22/bert_model.ckpt --data_dir=/home/rubensvectomobile/BERT/bert/glue_data/MRPC --output_dir=gs://tpu22/tpu-output --do_lower_case=True --max_seq_length=400 --do_train=True --do_eval=True --do_predict=True --train_batch_size=32 --eval_batch_size=32 --predict_batch_size=32 --learning_rate=1.4e-5 --num_train_epochs=4.0 --warmup_proportion=0.1 --use_tpu=True --save_checkpoints_steps=1 --iterations_per_loop=1000 --num_tpu_cores=8 --tpu_name=rubens
+```  
+
+
+
 # Fine-Tuning BERT Large  
 
 ```
