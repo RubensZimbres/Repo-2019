@@ -61,12 +61,7 @@ $ python format.py
 ```
 $ export BERT_BASE_DIR=gs://bert_models/2018_10_18/uncased_L-12_H-768_A-12
 
-$ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_config.json  
---vocab_file=gs://tpu22/vocab.txt --init_checkpoint=gs://tpu22/bert_model.ckpt --data_dir=/home/BERT/data  
---output_dir=gs://tpu22/tpu-output --do_lower_case=True --max_seq_length=400 --do_train=True --do_eval=True  
---do_predict=True --train_batch_size=128 --eval_batch_size=128 --predict_batch_size=128 --learning_rate=2e-6 
---num_train_epochs=5.0 --warmup_proportion=0.1 --use_tpu=True --save_checkpoints_steps=1 --iterations_per_loop=1000  
---num_tpu_cores=8 --tpu_name=rubens    
+$ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_config.json --vocab_file=gs://tpu22/vocab.txt --init_checkpoint=gs://tpu22/bert_model.ckpt --data_dir=/home/rubensvectomobile/BERT/data --output_dir=gs://tpu22/tpu-output --do_lower_case=True --max_seq_length=400 --do_train=True --do_eval=True --do_predict=True --train_batch_size=128 --eval_batch_size=128 --predict_batch_size=128 --learning_rate=2e-6 --num_train_epochs=5.0 --warmup_proportion=0.1 --use_tpu=True --save_checkpoints_steps=1 --iterations_per_loop=1000 --num_tpu_cores=8 --tpu_name=rubens    
 ```
 
 
@@ -79,7 +74,7 @@ $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_c
 # Fine-Tuning BERT Large  
 
 ```
-$ 0.68 $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_config.json --vocab_file=gs://tpu22/vocab.txt --init_checkpoint=gs://tpu22/bert_model.ckpt --data_dir=/home/BERT/data --output_dir=gs://tpu22/tpu-output --do_lower_case=True --max_seq_length=128 --do_train=True --do_eval=True --do_predict=False --train_batch_size=32 --eval_batch_size=32 --predict_batch_size=32 --learning_rate=7e-5 --num_train_epochs=3.0 --warmup_proportion=0.1 --use_tpu=True --save_checkpoints_steps=1 --iterations_per_loop=1000  --num_tpu_cores=8 --tpu_name=rubensvectomobile  
+$ 0.68 $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_config.json --vocab_file=gs://tpu22/vocab.txt --init_checkpoint=gs://tpu22/bert_model.ckpt --data_dir=/home/BERT/data --output_dir=gs://tpu22/tpu-output --do_lower_case=True --max_seq_length=128 --do_train=True --do_eval=True --do_predict=False --train_batch_size=32 --eval_batch_size=32 --predict_batch_size=32 --learning_rate=7e-5 --num_train_epochs=3.0 --warmup_proportion=0.1 --use_tpu=True --save_checkpoints_steps=1 --iterations_per_loop=1000  --num_tpu_cores=8 --tpu_name=rubens  
 ```  
 
 <img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/BERT/Pics/large.png>  
