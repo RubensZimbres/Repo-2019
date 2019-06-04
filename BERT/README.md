@@ -130,3 +130,12 @@ $ python /home/evaluate-v1.1.py /home/dev-v1.1.json predictions.json
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/final_squad1.png>  
 
+```
+$ gcloud config set project machinelearning-12345  
+
+$ gcloud compute config-ssh  
+
+$ ssh username.us-central1-b.machinelearning-12345
+
+```
+
