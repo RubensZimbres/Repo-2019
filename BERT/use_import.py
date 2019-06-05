@@ -52,7 +52,7 @@ is_per_host = tf.contrib.tpu.InputPipelineConfig.PER_HOST_V2
 
 run_config = tf.contrib.tpu.RunConfig(
   cluster=tpu_cluster_resolver,
-  master='grpc://TPU_IP:8470',
+  master='grpc://10.240.1.2:8470',
   model_dir=output_dir,
   save_checkpoints_steps=save_checkpoints_steps,
   tpu_config=tf.contrib.tpu.TPUConfig(
