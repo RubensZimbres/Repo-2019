@@ -100,9 +100,9 @@ $ 0.68 $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu-l
 --save_checkpoints_steps=1 --iterations_per_loop=1000 --num_tpu_cores=8 --tpu_name=rubens
 ```  
 
-<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/BERT/Pics/large.png>  
+<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/BERT/Pics/large22.png>  
 
-<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/BERT/Pics/3epochs_Large.png>
+<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/BERT/Pics/3epochs_Large22.png>
 
 # SQuAD Fine Tuning - Question Pairs
 
