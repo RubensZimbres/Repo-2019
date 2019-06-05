@@ -38,7 +38,6 @@ use_tpu=True
 save_checkpoints_steps=1 
 iterations_per_loop=1000 
 num_tpu_cores=8 
-tpu_name='rubensvectomobile'
 
 bert_config = modeling.BertConfig.from_json_file(bert_config_file)
 
