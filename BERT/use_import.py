@@ -9,8 +9,8 @@ import pandas as pd
 import numpy as np
 import time
 
-os.listdir("/home/BERT/bert")
-sys.path.insert(0, '/home/BERT/bert')
+os.listdir("/home/rubensvectomobile/BERT/bert")
+sys.path.insert(0, '/home/rubensvectomobile/BERT/bert')
 
 from run_classifier import *
 import modeling
@@ -21,7 +21,7 @@ task_name='cola'
 bert_config_file='gs://tpu22/bert_config.json'
 vocab_file='gs://tpu22/vocab.txt'
 init_checkpoint='gs://tpu22/bert_model.ckpt'
-data_dir='/home/BERT/data'
+data_dir='/home/BERT/rubensvectomobile/data'
 output_dir='gs://tpu22/tpu-output33'
 do_lower_case=True 
 max_seq_length=384 
@@ -52,7 +52,7 @@ is_per_host = tf.contrib.tpu.InputPipelineConfig.PER_HOST_V2
 
 run_config = tf.contrib.tpu.RunConfig(
   cluster=tpu_cluster_resolver,
-  master=master,
+  master='grpc://TPU_IP:8470',
   model_dir=output_dir,
   save_checkpoints_steps=save_checkpoints_steps,
   tpu_config=tf.contrib.tpu.TPUConfig(
