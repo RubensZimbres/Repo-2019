@@ -69,8 +69,8 @@ model_fn = model_fn_builder(
       num_labels=len(label_list),
       init_checkpoint=init_checkpoint,
       learning_rate=learning_rate,
-      num_train_steps=num_train_epochs,
-      num_warmup_steps=2,
+      num_train_steps=num_train_steps,
+      num_warmup_steps=num_warmup_steps,
       use_tpu=use_tpu,
       use_one_hot_embeddings=use_tpu)
 
