@@ -24,4 +24,13 @@ $ python3 src/generate_unconditional_samples.py --top_k 40 --temperature 0.7 | t
 $ python3 src/interactive_conditional_samples.py --temperature 0.7 --top_k 5 --model_name 345M --seed 149 --nsamples 80  
 ```
 
-<img src=>
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/OpenAI-GPT-2/PIcs/gpt-2_1.JPG>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/OpenAI-GPT-2/PIcs/gpt-2_3.JPG>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/OpenAI-GPT-2/PIcs/gpt-2_4.JPG>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/OpenAI-GPT-2/PIcs/gpt-2_4.1.JPG>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/OpenAI-GPT-2/PIcs/gpt-2_5.JPG>  
+
