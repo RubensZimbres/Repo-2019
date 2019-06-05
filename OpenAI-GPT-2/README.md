@@ -21,7 +21,13 @@ $ python3 src/generate_unconditional_samples.py --top_k 40 --temperature 0.7 | t
 
 # Conditional sample generation
 
-$ python3 src/interactive_conditional_samples.py --temperature 0.7 --top_k 5 --model_name 345M --seed 149 --nsamples 80  
+$ python3 src/interactive_conditional_samples.py --temperature 0.7 --top_k 5 --model_name 345M --seed 149 --nsamples 80 
+```
+
+```
+$ gcloud auth login
+
+$ gsutil cp /home/gpt-2/* gs://gpt-2-storage
 ```
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/OpenAI-GPT-2/PIcs/gpt-2_1.JPG>  
