@@ -69,6 +69,18 @@ $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_c
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert05.JPG>  
 
+# Feature extraction (14 , 767 , 4)
+
+```
+$ echo 'Alicia Silverstone went to the beach ||| Alicia is an actress' > input.txt
+
+$ python extract_features.py --input_file=input.txt --output_file=/home/rubensvectomobile/BERT/bert/output.json --bert_config_file=gs://tpu22/bert_config.json --vocab_file=gs://tpu22/vocab.txt --init_checkpoint=gs://tpu22/bert_model.ckpt --layers=-1,-2,-3,-4 --max_seq_length=128 --batch_size=24
+```
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/json_feature.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/features.png>  
+
 # Glue tasks  
 
 https://gluebenchmark.com/tasks
