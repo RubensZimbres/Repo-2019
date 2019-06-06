@@ -73,7 +73,7 @@ $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_c
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert00.JPG>  
 
-# Tokenizer  
+# Tokenizer  (CPU)
 
 ```
 $ from bert import *
@@ -95,13 +95,18 @@ $ from __future__ import print_function
       print (entrada, file=f)
 ```
 
-# Classification [Mask]  
+# Classification [Mask]  (GPU)
 
 ```
-$ python run_squad.py --bert_config_file=gs://tpu-large/bert_config.json --vocab_file=gs://tpu-large/vocab.txt --init_checkpoint=gs://tpu-large/bert_model.ckpt --data_dir=/home/rubens/BERT/entrada --output_dir=gs://tpu-squad/tpu-squad-output/mask --max_seq_length=384 --do_train=False --do_predict=True --train_batch_size=24 --predict_batch_size=24 --learning_rate=1.4e-5 --num_train_epochs=2.0 --use_tpu=False --save_checkpoints_steps=1 --iterations_per_loop=1000 --train_file=/home/rubens/BERT/entrada/entrada.tsv --predict_file=/home/rubens/BERT/bert/dev-v1.1.json --doc_stride=128
+$ python run_squad.py --bert_config_file=gs://tpu-large/bert_config.json --vocab_file=gs://tpu-large/vocab.txt  
+--init_checkpoint=gs://tpu-large/bert_model.ckpt --data_dir=/home/rubens/BERT/entrada  
+--output_dir=gs://tpu-squad/tpu-squad-output/mask --max_seq_length=384 --do_train=False  
+--do_predict=True --train_batch_size=24 --predict_batch_size=24 --learning_rate=1.4e-5 --num_train_epochs=2.0  
+--use_tpu=False --save_checkpoints_steps=1 --iterations_per_loop=1000  
+--train_file=/home/rubens/BERT/entrada/entrada.tsv --predict_file=/home/rubens/BERT/bert/dev-v1.1.json --doc_stride=128
 ```
 
-# Feature extraction (14 , 4 , 768)  
+# Feature extraction (14 , 4 , 768)  (CPU)
 
 This will create a JSON file (one line per line of input) containing the BERT activations from each Transformer layer specified by layers (-1 is the final hidden layer of the Transformer, etc.)
 
