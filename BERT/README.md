@@ -61,7 +61,7 @@ $ export BERT_BASE_DIR=gs://bert_models/2018_10_18/uncased_L-12_H-768_A-12
 
 $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_config.json  
 --vocab_file=gs://tpu22/vocab.txt --init_checkpoint=gs://tpu22/bert_model.ckpt  
---data_dir=/home/rubensvectomobile/BERT/data --output_dir=gs://tpu22/tpu-output --do_lower_case=True  
+--data_dir=/home/rubens/BERT/data --output_dir=gs://tpu22/tpu-output --do_lower_case=True  
 --max_seq_length=400 --do_train=True --do_eval=True --do_predict=True --train_batch_size=128  
 --eval_batch_size=128 --predict_batch_size=128 --learning_rate=2e-6 --num_train_epochs=5.0  
 --warmup_proportion=0.1 --use_tpu=True --save_checkpoints_steps=1 --iterations_per_loop=1000  
@@ -72,6 +72,34 @@ $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_c
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert1.png>  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert00.JPG>  
+
+# Tokenizer  
+
+```
+$ from bert import *
+$ tokenizer = tokenization.FullTokenizer
+# FILE # CLASS # FUNCTION
+$ tokenizer = tokenization.FullTokenizer(vocab_file='gs://tpu22/vocab.txt', do_lower_case=True)
+$ orig_tokens=tokenizer.tokenize("Alicia is an intelligent girl working at Google  !")
+$ bert_tokens = []
+  orig_to_tok_map = []
+
+  bert_tokens.append("[CLS]")
+  for orig_token in orig_tokens:
+      orig_to_tok_map.append(len(bert_tokens))
+      bert_tokens.extend(tokenizer.tokenize(orig_token))
+  bert_tokens.append("[SEP]")
+$ entrada='[CLS] the man went to the [MASK1] .[SEP] he bought a [MASK2] of milk. [SEP]'
+$ from __future__ import print_function
+  with open("entrada.tsv", "w") as f:
+      print (entrada, file=f)
+```
+
+# Classification [Mask]  
+
+```
+$ python run_squad.py --bert_config_file=gs://tpu-large/bert_config.json --vocab_file=gs://tpu-large/vocab.txt --init_checkpoint=gs://tpu-large/bert_model.ckpt --data_dir=/home/rubens/BERT/entrada --output_dir=gs://tpu-squad/tpu-squad-output/mask --max_seq_length=384 --do_train=False --do_predict=True --train_batch_size=24 --predict_batch_size=24 --learning_rate=1.4e-5 --num_train_epochs=2.0 --use_tpu=False --save_checkpoints_steps=1 --iterations_per_loop=1000 --train_file=/home/rubens/BERT/entrada/entrada.tsv --predict_file=/home/rubens/BERT/bert/dev-v1.1.json --doc_stride=128
+```
 
 # Feature extraction (14 , 4 , 768)  
 
