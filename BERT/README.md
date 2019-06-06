@@ -69,7 +69,9 @@ $ python run_classifier.py --task_name=cola --bert_config_file=gs://tpu22/bert_c
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert05.JPG>  
 
-# Feature extraction (14 , 767 , 4)
+# Feature extraction (14 , 767 , 4)  
+
+This will create a JSON file (one line per line of input) containing the BERT activations from each Transformer layer specified by layers (-1 is the final hidden layer of the Transformer, etc.)
 
 ```
 $ echo 'Alicia Silverstone went to the beach ||| Alicia is an actress' > input.txt
