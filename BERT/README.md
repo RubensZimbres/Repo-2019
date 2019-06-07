@@ -1,6 +1,8 @@
 # BERT Model for Natural Language Processing - Google Research  
 
-Tutorial at: https://www.linkedin.com/feed/update/urn:li:article:7199689357226496574/  
+For more info about the details of the algorithm access:  
+
+https://www.linkedin.com/feed/update/urn:li:article:7199689357226496574/  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/BERT/Pics/bert_git.png>  
 
