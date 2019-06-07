@@ -16,7 +16,7 @@ $ wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
 $ wget https://raw.githubusercontent.com/tiagosn/cifar-10_py2png/master/cifar-10_py2png.py
 $ python cifar-10_py2png.py cifar-10-batches-py
 
-#IMAGENET
+#IMAGENET --  155 GB
 $ pip install kaggle
 $ export KAGGLE_USERNAME=rubens
 $ export KAGGLE_KEY=xxxxxxxxxxxxxx
