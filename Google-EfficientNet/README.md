@@ -9,6 +9,7 @@ https://arxiv.org/pdf/1905.11946.pdf
 <b>Using Checkpoints</b>
 
 ```
+$ git clone https://github.com/tensorflow/tpu/
 $ wget https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-EfficientNet/download_imagenet.sh
 $ mkdir data && cd data && sudo bash download_imagenet.sh
 $ export MODEL=efficientnet-b3
