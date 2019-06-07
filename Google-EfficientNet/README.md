@@ -31,6 +31,8 @@ $ wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/eval_da
 $ python eval_ckpt_main.py --model_name=efficientnet-b3 --ckpt_dir=efficientnet-b3 --example_img=panda.jpg --labels_map_file=labels_map.txt
 ```  
 
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/panda.png>  
+
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/efficient0.png>  
 
 <b>Training</b>  
