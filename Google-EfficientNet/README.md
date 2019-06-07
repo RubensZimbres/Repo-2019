@@ -10,24 +10,34 @@ https://arxiv.org/pdf/1905.11946.pdf
 
 ```
 $ git clone https://github.com/tensorflow/tpu/
+```
 
-# CIFAR-10
+<b>Get CIFAR-10</b>
+
+```
 $ wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
 $ wget https://raw.githubusercontent.com/tiagosn/cifar-10_py2png/master/cifar-10_py2png.py
 $ python cifar-10_py2png.py cifar-10-batches-py
+```
 
-#IMAGENET --  155 GB
+<b>Download IMAGENET --  SIZE = 155 GB</b>
+
+```
+$ df -h
 $ pip install kaggle
 $ export KAGGLE_USERNAME=rubens
 $ export KAGGLE_KEY=xxxxxxxxxxxxxx
 $ ~/.local/bin/kaggle competitions download -c imagenet-object-localization-challenge
 
-
+# OR
 
 $ mkdir data && cd data
 $ wget https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-EfficientNet/download_imagenet.sh
 $ sudo bash download_imagenet.sh
+```  
+<b>Project</b>
 
+```
 $ export MODEL=efficientnet-b0
 $ wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/efficientnet-b0.tar.gz
 $ mkdir weights
