@@ -1,5 +1,9 @@
 # Google's EfficientNets  
 
+Paper: EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks  
+
+https://arxiv.org/pdf/1905.11946.pdf
+
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/efficient.png>  
 
 <b>Using Checkpoints</b>
