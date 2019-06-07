@@ -6,11 +6,7 @@ https://arxiv.org/pdf/1905.11946.pdf
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/efficient.png>  
 
-<b>Using Checkpoints</b>
-
-```
-$ git clone https://github.com/tensorflow/tpu/
-```
+# Using Checkpoints
 
 <b>Get CIFAR-10</b>
 
@@ -52,7 +48,7 @@ $ python eval_ckpt_main.py --model_name=efficientnet-b3 --ckpt_dir=efficientnet-
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/efficient0.png>  
 
-<b>Training</b>  
+# Training  
 
 ```
 $ export PYTHONPATH="$PYTHONPATH:/home/rubens/efficient"
