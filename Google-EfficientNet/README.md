@@ -14,7 +14,7 @@ $ mkdir data && cd data && sudo bash download_imagenet.sh
 $ export MODEL=efficientnet-b3
 $ wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/efficientnet-b3.tar.gz
 $ mkdir weights
-$ cd weights && tar -xvf efficientnet-b3.tar.gz
+$ tar -xvf efficientnet-b3.tar.gz
 $ gsutil cp home/rubens/weights/* gs://efficient-net
 $ wget https://upload.wikimedia.org/wikipedia/commons/f/fe/Giant_Panda_in_Beijing_Zoo_1.JPG -O panda.jpg
 $ wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/eval_data/labels_map.txt
