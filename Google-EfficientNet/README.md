@@ -10,8 +10,16 @@ https://arxiv.org/pdf/1905.11946.pdf
 
 ```
 $ git clone https://github.com/tensorflow/tpu/
+
+# CIFAR-10
+$ wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
+$ wget https://raw.githubusercontent.com/tiagosn/cifar-10_py2png/master/cifar-10_py2png.py
+$ python2.7 cifar-10_py2png.py cifar-10-batches-py
+
+#IMAGENET
 $ wget https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-EfficientNet/download_imagenet.sh
 $ mkdir data && cd data && sudo bash download_imagenet.sh
+
 $ export MODEL=efficientnet-b3
 $ wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/efficientnet-b3.tar.gz
 $ mkdir weights
