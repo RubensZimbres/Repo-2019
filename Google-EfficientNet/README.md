@@ -26,4 +26,6 @@ $ python eval_ckpt_main.py --model_name=efficientnet-b3 --ckpt_dir=efficientnet-
 ```
 $ export PYTHONPATH="$PYTHONPATH:/home/rubensvectomobile"
 $ python main.py --tpu=rubens --data_dir=gs://efficient-net/data --model_dir=gs://efficient-net
+
+$ python main.py --use_tpu=False --data_dir=gs://efficient-net/data --model_dir=gs://efficient-net
 ```
