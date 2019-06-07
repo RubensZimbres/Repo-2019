@@ -20,10 +20,10 @@ $ python2.7 cifar-10_py2png.py cifar-10-batches-py
 $ wget https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-EfficientNet/download_imagenet.sh
 $ mkdir data && cd data && sudo bash download_imagenet.sh
 
-$ export MODEL=efficientnet-b3
-$ wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/efficientnet-b3.tar.gz
+$ export MODEL=efficientnet-b0
+$ wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/efficientnet-b0.tar.gz
 $ mkdir weights
-$ tar -xvf efficientnet-b3.tar.gz
+$ tar -xvf efficientnet-b0.tar.gz
 $ gsutil cp home/rubens/weights/* gs://efficient-net
 $ wget https://upload.wikimedia.org/wikipedia/commons/f/fe/Giant_Panda_in_Beijing_Zoo_1.JPG -O panda.jpg
 $ wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/eval_data/labels_map.txt
