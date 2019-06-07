@@ -1,11 +1,12 @@
 # Google's EfficientNets  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/efficientnets.png>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/efficient.png>  
 
 <b>Using Checkpoints</b>
 
 ```
-$ wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/efficientnet-b3.tar.gz
+$ wget https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-EfficientNet/download_imagenet.sh
+$ mkdir data && cd data && sudo bash download_imagenet.sh
 $ export MODEL=efficientnet-b3
 $ wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/efficientnet-b3.tar.gz
 $ mkdir weights
