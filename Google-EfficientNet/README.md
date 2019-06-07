@@ -41,7 +41,7 @@ $ cd /tpu/models/official/efficientnet
 $ python main.py --tpu=rubens --data_dir=gs://efficient-net/data --model_dir=gs://efficient-net
 ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/efficient01.png>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/efficient_01.png>  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/efficient00.png>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/efficient_00.png>  
 
