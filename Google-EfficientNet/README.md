@@ -31,6 +31,8 @@ $ wget https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/eval_da
 $ python eval_ckpt_main.py --model_name=efficientnet-b3 --ckpt_dir=efficientnet-b3 --example_img=panda.jpg --labels_map_file=labels_map.txt
 
 # TPU
+# Transfer project between instances
+
 $ mkdir efficient
 $ gcloud compute scp -r /home/efficient/* rubens@10.200.1.3:home/efficient
 ```
