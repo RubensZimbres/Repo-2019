@@ -41,5 +41,6 @@ $ gcloud compute scp -r /home/efficient/* rubens@10.200.1.3:home/efficient
 
 ```
 $ export PYTHONPATH="$PYTHONPATH:/home/rubens/efficient"
+$ cd /tpu/models/official/efficientnet
 $ python main.py --tpu=rubens --data_dir=gs://efficient-net/data --model_dir=gs://efficient-net
 ```
