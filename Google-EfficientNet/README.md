@@ -17,6 +17,13 @@ $ wget https://raw.githubusercontent.com/tiagosn/cifar-10_py2png/master/cifar-10
 $ python cifar-10_py2png.py cifar-10-batches-py
 
 #IMAGENET
+$ pip install kaggle
+$ export KAGGLE_USERNAME=rubens
+$ export KAGGLE_KEY=xxxxxxxxxxxxxx
+$ ~/.local/bin/kaggle competitions download -c imagenet-object-localization-challenge
+
+
+
 $ mkdir data && cd data
 $ wget https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-EfficientNet/download_imagenet.sh
 $ sudo bash download_imagenet.sh
