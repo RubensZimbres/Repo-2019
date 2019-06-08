@@ -60,7 +60,15 @@ $ exit
 $ sudo chmod -R +X /home
 $ ...
 
-$ gsutil cp ~/.local/bin/dataset gs://efficient-net/data
+ILSVRC/ImageSets/CLS-LOC/train_loc.txt
+ILSVRC/ImageSets/CLS-LOC/train_cls.txt
+ILSVRC/ImageSets/CLS-LOC/val.txt
+ILSVRC/ImageSets/CLS-LOC/test.txt
+
+$ cd ILSVRC/Data/CLS-LOC/train/n04562935/
+$ gcloud auth login
+$ gsutil cp /mnt/disks/ILSVRC/Data/CLS-LOC/train/n04562935/* gs://efficient-net/data/train
+$ gsutil cp /mnt/disks/ILSVRC/Annotations/CLS-LOC/train/n04562935/* gs://efficient-net/data/train
 $ gsutil mv gs://efficient-net/data/train0.csv gs://efficient-net/data/train.csv
 ```  
 
