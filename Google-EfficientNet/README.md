@@ -69,7 +69,7 @@ $ cd ILSVRC/Data/CLS-LOC/train/n04562935/
 $ gcloud auth login
 $ gsutil cp /mnt/disks/ILSVRC/Data/CLS-LOC/train/n04562935/* gs://efficient-net/data/train
 $ gsutil cp /mnt/disks/ILSVRC/Annotations/CLS-LOC/train/n04562935/* gs://efficient-net/data/train
-$ gsutil mv gs://efficient-net/data/train0.csv gs://efficient-net/data/train.csv
+$ gsutil du -s gs://efficient-net
 ```  
 
 <img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-EfficientNet/Pics/kaggle_download1.png>  
