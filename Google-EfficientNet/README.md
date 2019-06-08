@@ -54,7 +54,7 @@ $ gsutil cp ~/.local/bin/dataset gs://efficient-net/data
 $ gsutil mv gs://efficient-net/data/train0.csv gs://efficient-net/data/train.csv
 ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/kaggle_download.png.png>  
+<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-EfficientNet/Pics/kaggle_download1.png>  
 
 <b>Project</b>
 
