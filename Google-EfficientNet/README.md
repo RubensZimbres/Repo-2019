@@ -16,10 +16,29 @@ $ wget https://raw.githubusercontent.com/tiagosn/cifar-10_py2png/master/cifar-10
 $ python cifar-10_py2png.py cifar-10-batches-py
 ```
 
+
+<b> ATTACH AND CONFIGURE GOOGLE COMPUTE ENGINE DISK </b>
+
+```
+$ sudo mkfs.ext4 -m 0 -F -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/sdb
+$ sudo mkdir -p /mnt/disks/
+$ sudo mount -o discard,defaults /dev/sdb /mnt/disks/
+$ sudo chmod a+w /mnt/disks/
+$ sudo cp /etc/fstab /etc/fstab.backup
+$ sudo blkid /dev/sdb
+$ sudo vi /etc/fstab
+$ sudo lsblk
+
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda      8:0    0   60G  0 disk 
+└─sda1   8:1    0   60G  0 part /
+sdb      8:16   0  500G  0 disk /mnt/disks
+$ cd /mnt/disks
+```  
+
 <b>Download IMAGENET --  SIZE = 155 GB</b>
 
 ```
-$ df -h
 $ pip install kaggle
 $ export KAGGLE_USERNAME=rubens
 $ export KAGGLE_KEY=xxxxxxxxxxxxxx
@@ -34,6 +53,9 @@ $ sudo bash download_imagenet.sh
 $ gsutil cp ~/.local/bin/dataset gs://efficient-net/data
 $ gsutil mv gs://efficient-net/data/train0.csv gs://efficient-net/data/train.csv
 ```  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/kaggle_download.png.png>  
+
 <b>Project</b>
 
 ```
