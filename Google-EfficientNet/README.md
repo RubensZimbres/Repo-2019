@@ -8,15 +8,6 @@ https://arxiv.org/pdf/1905.11946.pdf
 
 # Using Checkpoints
 
-<b>Get CIFAR-10</b>
-
-```
-$ wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
-$ wget https://raw.githubusercontent.com/tiagosn/cifar-10_py2png/master/cifar-10_py2png.py
-$ python cifar-10_py2png.py cifar-10-batches-py
-```
-
-
 <b> ATTACH AND CONFIGURE GOOGLE COMPUTE ENGINE DISK </b>
 
 ```
