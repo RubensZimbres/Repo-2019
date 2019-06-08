@@ -50,6 +50,10 @@ $ mkdir data && cd data
 $ wget https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-EfficientNet/download_imagenet.sh
 $ sudo bash download_imagenet.sh
 
+$ exit
+$ sudo chmod -R +X /home
+$ ...
+
 $ gsutil cp ~/.local/bin/dataset gs://efficient-net/data
 $ gsutil mv gs://efficient-net/data/train0.csv gs://efficient-net/data/train.csv
 ```  
