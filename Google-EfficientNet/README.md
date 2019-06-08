@@ -27,6 +27,10 @@ $ sudo chmod a+w /mnt/disks/
 $ sudo cp /etc/fstab /etc/fstab.backup
 $ sudo blkid /dev/sdb
 $ sudo vi /etc/fstab
+
+UUID=3f228fd9-1dce-4197-b1b2b3-12345 /mnt/disks/ ext4 discard,defaults,nobootwait 0 2
+# ESC : wq
+
 $ sudo lsblk
 
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
@@ -42,6 +46,8 @@ $ cd /mnt/disks
 $ pip install kaggle
 $ export KAGGLE_USERNAME=rubens
 $ export KAGGLE_KEY=xxxxxxxxxxxxxx
+$ touch kaggle.json
+$ vi kaggle.json # ADD CREDENTIALS
 $ ~/.local/bin/kaggle competitions download -c imagenet-object-localization-challenge
 
 # OR
