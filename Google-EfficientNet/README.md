@@ -239,4 +239,8 @@ $ python main.py --helpshort
   --width_coefficient: WIdth coefficient for scaling channel size.
     (a number)
 
+GCLOUD EXAMPLE:
+
+$ python main.py --data_dir=gs://cloud-tpu-test-datasets/fake_imagenet --model_dir=gs://cls-loc-output --model_name='efficientnet-b0' --skip_host_call=true --train_batch_size=4096 --train_steps=10000 --tpu=rubens
+
 ```
