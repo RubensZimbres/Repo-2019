@@ -64,6 +64,7 @@ ILSVRC/ImageSets/CLS-LOC/test.txt
 $ cd ILSVRC/Data/CLS-LOC/train/n04562935/
 $ gcloud auth login
 $ sudo chmod -R 755 /mnt/disks/
+$ cp $(ls | head -n 1000) /path/
 $ gsutil cp /mnt/disks/ILSVRC/Data/CLS-LOC/train/n04562935/* gs://efficient-net/data/train
 $ gsutil cp /mnt/disks/ILSVRC/Annotations/CLS-LOC/train/n04562935/* gs://efficient-net/data/train
 $ gsutil du -s gs://efficient-net
