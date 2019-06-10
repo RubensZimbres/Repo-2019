@@ -51,6 +51,9 @@ $ exit
 $ sudo chmod -R +X /home
 $ ...
 
+ILSVRC/Annotations/CLS-LOC/train/ILSVRC2012_train_0012345.JPEG
+ILSVRC/Data/CLS-LOC/train/ILSVRC2012_train_0012345.JPEG
+ILSVRC/Data/CLS-LOC/val/ILSVRC2012_val_0012345.JPEG
 ILSVRC/ImageSets/CLS-LOC/train_loc.txt
 ILSVRC/ImageSets/CLS-LOC/train_cls.txt
 ILSVRC/ImageSets/CLS-LOC/val.txt
