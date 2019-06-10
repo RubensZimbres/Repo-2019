@@ -118,3 +118,125 @@ $ python main.py --tpu=rubens --data_dir=gs://efficient-net/data --model_dir=gs:
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-EfficientNet/Pics/efficient_00.png>  
 
+# Parameters  
+
+```
+$ python main.py --helpshort
+
+  --base_learning_rate: Base learning rate when train batch size is 256.
+    (default: '0.016')
+    (a number)
+  --batch_norm_epsilon: Batch normalization layer epsilon to override..
+    (a number)
+  --batch_norm_momentum: Batch normalization layer momentum of moving average to override.
+    (a number)
+  --bigtable_column_family: The column family storing TFExamples.
+    (default: 'tfexample')
+  --bigtable_column_qualifier: The column name storing TFExamples.
+    (default: 'example')
+  --bigtable_eval_prefix: The prefix identifying evaluation rows.
+    (default: 'validation_')
+  --bigtable_instance: The Cloud Bigtable instance to load data from.
+  --bigtable_project: The Cloud Bigtable project.  If None, --gcp_project will be used.
+  --bigtable_table: The Cloud Bigtable table to load data from.
+    (default: 'imagenet')
+  --bigtable_train_prefix: The prefix identifying training rows.
+    (default: 'train_')
+  --data_dir: The directory where the ImageNet input data is stored. Please see the README.md for the expected data
+    format.
+    (default: 'gs://cloud-tpu-test-datasets/fake_imagenet')
+  --data_format: A flag to override the data format used in the model. The value is either channels_first or
+    channels_last. To run the network on CPU or TPU, channels_last should be used. For GPU, channels_first will
+    improve performance.
+    (default: 'channels_last')
+  --depth_coefficient: Depth coefficient for scaling number of layers.
+    (a number)
+  --drop_connect_rate: Drop connect rate for the network.
+    (a number)
+  --dropout_rate: Dropout rate for the final output layer.
+    (a number)
+  --eval_batch_size: Batch size for evaluation.
+    (default: '1024')
+    (an integer)
+  --eval_timeout: Maximum seconds between checkpoints before evaluation terminates.
+    (an integer)
+  --export_dir: The directory where the exported SavedModel will be stored.
+  --[no]export_to_tpu: Whether to export additional metagraph with "serve, tpu" tags in addition to "serve" only
+    metagraph.
+    (default: 'false')
+  --gcp_project: Project name for the Cloud TPU-enabled project. If not specified, we will attempt to automatically
+    detect the GCE project from metadata.
+  --input_image_size: Input image size: it depends on specific model name.
+    (an integer)
+  --iterations_per_loop: Number of steps to run on TPU before outfeeding metrics to the CPU. If the number of
+    iterations in the loop would exceed the number of train steps, the loop will exit before reaching
+    --iterations_per_loop. The larger this value is, the higher the utilization on the TPU.
+    (default: '1251')
+    (an integer)
+  --label_smoothing: Label smoothing parameter used in the softmax_cross_entropy
+   (default: '0.1')
+    (a number)
+  --log_step_count_steps: The number of steps at which the global step information is logged.
+    (default: '64')
+    (an integer)
+  --mode: One of {"train_and_eval", "train", "eval"}.
+    (default: 'train_and_eval')
+  --model_dir: The directory where the model and training/evaluation summaries are stored.
+  --model_name: The model name among existing configurations.
+    (default: 'efficientnet-b0')
+  --momentum: Momentum parameter used in the MomentumOptimizer.
+    (default: '0.9')
+    (a number)
+  --moving_average_decay: Moving average decay rate.
+    (default: '0.9999')
+    (a number)
+  --num_eval_images: Size of evaluation data set.
+    (default: '50000')
+    (an integer)
+  --num_label_classes: Number of classes, at least 2
+    (default: '1000')
+    (an integer)
+  --num_parallel_calls: Number of parallel threads in CPU for the input pipeline
+    (default: '64')
+    (an integer)
+  --num_train_images: Size of training data set.
+    (default: '1281167')
+    (an integer)
+  --[no]skip_host_call: Skip the host_call which is executed every training step. This is generally used for
+    generating training summaries (train loss, learning rate, etc...). When --skip_host_call=false, there could be
+    a performance drop if host_call function is slow and cannot keep up with the TPU-side computation.
+    (default: 'false')
+  --steps_per_eval: Controls how often evaluation is performed. Since evaluation is fairly expensive, it is advised
+    to evaluate as infrequently as possible (i.e. up to --train_steps, which evaluates the model only after
+    finishing the entire training regime).
+    (default: '6255')
+    (an integer)
+  --tpu: The Cloud TPU to use for training. This should be either the name used when creating the Cloud TPU, or a
+    grpc://ip.address.of.tpu:8470 url.
+  --tpu_zone: GCE zone where the Cloud TPU is located in. If not specified, we will attempt to automatically detect
+    the GCE project from metadata.
+  --train_batch_size: Batch size for training.
+    (default: '2048')
+    (an integer)
+  --train_steps: The number of steps to use for training. Default is 218949 steps which is approximately 350 epochs
+    at batch size 2048. This flag should be adjusted according to the --train_batch_size flag.
+    (default: '218949')
+    (an integer)
+  --[no]transpose_input: Use TPU double transpose optimization
+    (default: 'true')
+  --[no]use_async_checkpointing: Enable async checkpoint
+    (default: 'false')
+  --[no]use_bfloat16: Whether to use bfloat16 as activation for training.
+    (default: 'false')
+  --[no]use_cache: Enable cache for training input.
+    (default: 'true')
+  --[no]use_tpu: Use TPU to execute the model for training and evaluation. If --use_tpu=false, will use whatever
+    devices are available to TensorFlow by default (e.g. CPU and GPU)
+    (default: 'true')
+  --weight_decay: Weight decay coefficiant for l2 regularization.
+    (default: '1e-05')
+    (a number)
+  --width_coefficient: WIdth coefficient for scaling channel size.
+    (a number)
+
+```
