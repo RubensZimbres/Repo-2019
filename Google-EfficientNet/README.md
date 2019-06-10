@@ -85,6 +85,21 @@ $ python eval_ckpt_main.py --model_name=efficientnet-b3 --ckpt_dir=efficientnet-
 # Training  
 
 ```
+$ mkdir train
+  $ cd train
+  $ tar xvf ~/Downloads/ILSVRC2012_img_train.tar
+  $ find . -name "*.tar" | while read NAME ; do mkdir -p "${NAME%.tar}"; tar -xvf "${NAME}" -C "${NAME%.tar}"; rm -f "${NAME}"; done
+  ### extract val data
+  $ cd ..
+  $ mkdir val
+  $ cd val
+  $ tar xvf ~/Downloads/ILSVRC2012_img_val.tar
+  $ wget
+https://raw.githubusercontent.com/jkjung-avt/jkjung-avt.github.io/master/assets/2017-12-01-ilsvrc2012-in-digits/valprep.sh
+  $ bash ./valprep.sh
+
+$ find train/ -name "*.JPEG" | wc -l
+
 $ export PYTHONPATH="$PYTHONPATH:/home/rubens/efficient"
 $ cd /tpu/models/official/efficientnet
 $ python main.py --tpu=rubens --data_dir=gs://efficient-net/data --model_dir=gs://efficient-net
