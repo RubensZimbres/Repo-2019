@@ -91,6 +91,8 @@ $ python eval_ckpt_main.py --model_name=efficientnet-b3 --ckpt_dir=efficientnet-
 # Training  
 
 ```
+$ git clone https://github.com/tensorflow/tpu
+
 $ mkdir train
   $ cd train
   $ tar xvf ~/Downloads/ILSVRC2012_img_train.tar
