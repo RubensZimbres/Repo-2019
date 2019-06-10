@@ -243,6 +243,6 @@ GCLOUD EXAMPLE:
 
 $ sudo gsutil cp -r gs://cloud-tpu-test-datasets/fake_imagenet /mnt/disks/fake-imagenet/
 
-$ python main.py --data_dir=gs://cloud-tpu-test-datasets/fake_imagenet --model_dir=gs://cls-loc-output --model_name='efficientnet-b0' --skip_host_call=true --train_batch_size=1024 --train_steps=600 --tpu=rubens
+$ python main.py --data_dir=gs://cloud-tpu-test-datasets/fake_imagenet --model_dir=gs://cls-loc-output --model_name='efficientnet-b0' --skip_host_call=true --train_batch_size=1024 --train_steps=10000 --tpu=rubens
 
 ```
