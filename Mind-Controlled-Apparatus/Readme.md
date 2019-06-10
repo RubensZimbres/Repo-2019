@@ -1,4 +1,6 @@
-# Mind Controlled Apparatus  - Project Start June, 2019
+# Mind Controlled Apparatus  - Brain Wave Reader  
+
+<b> Project Start June, 2019 </b>
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/muse0.JPG>
 
