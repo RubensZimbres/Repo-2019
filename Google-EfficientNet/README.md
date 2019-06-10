@@ -41,6 +41,7 @@ $ touch kaggle.json
 $ vi kaggle.json # ADD CREDENTIALS
 /mnt/disks/$ ~/.local/bin/kaggle competitions download -c imagenet-object-localization-challenge
 /mnt/disks/$ tar -xvf imagenet_object_localization.tar.gz
+$ du -hs
 
 # OR
 
