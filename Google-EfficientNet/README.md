@@ -49,6 +49,9 @@ $ mkdir data && cd data
 $ wget https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-EfficientNet/download_imagenet.sh
 $ sudo bash download_imagenet.sh
 
+$ git clone https://github.com/tensorflow/tpu
+tpu $ python /tools/datasets/imagenet_to_gcs.py
+
 $ exit
 $ sudo chmod -R +X /home
 $ ...
