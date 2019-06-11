@@ -249,6 +249,6 @@ $ cd tpu/models/official/efficientnet/
 
 $ sudo gsutil cp -r gs://cloud-tpu-test-datasets/fake_imagenet /mnt/disks/fake-imagenet/
 
-$ python main.py --data_dir=gs://cloud-tpu-test-datasets/fake_imagenet --model_dir=gs://cls-loc-output --model_name='efficientnet-b0' --skip_host_call=true --train_batch_size=1024 --train_steps=10000 --base_learning_rate=1e-3 --dropout_rate=0.1 --eval_batch_size=1024 --export_dir=gs://cls-loc-output/saved --num_eval_images=10000 --tpu=rubens
+$ python main.py --data_dir=gs://cloud-tpu-test-datasets/fake_imagenet --model_dir=gs://cls-loc-output --model_name='efficientnet-b0' --skip_host_call=true --train_batch_size=1024 --train_steps=10000 --dropout_rate=0.1 --eval_batch_size=1024 --export_dir=gs://cls-loc-output/saved --num_eval_images=10000 --steps_per_eval=4000 --tpu=rubens --base_learning_rate=1.8e-2
 
 ```
