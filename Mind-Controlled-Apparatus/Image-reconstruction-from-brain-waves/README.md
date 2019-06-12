@@ -1,6 +1,6 @@
 # Image Reconstruction from Brain Waves  
 
-<b>Modus Operandi:</b>  
+<b>Procedures:</b>  
 
 1. See a picture of a dog and save brain wave data from Alpha, Beta, Gamma and Theta waves (variable muse in notebook)  
 
