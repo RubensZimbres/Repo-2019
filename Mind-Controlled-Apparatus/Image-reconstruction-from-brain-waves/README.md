@@ -2,6 +2,12 @@
 
 <b>Procedures:</b>  
 
+Brain Wave reader: Muse: 4 points: 2 in frontal, 2 in temporal.
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/Muse_Monitor/Screenshot_20190610-164617_Muse%20Monitor.jpg width="250" height="400"> <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/Muse_Monitor/Screenshot_20190610-164542_Muse%20Monitor.jpg width="250" height="400"> <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/Muse_Monitor/Screenshot_20190610-164515_Muse%20Monitor.jpg width="250" height="400"> <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/Muse_Monitor/Screenshot_20190610-164341_Muse%20Monitor.jpg width="250" height="400"> <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/Muse_Monitor/Screenshot_20190610-161054_Muse%20Monitor.jpg width="250" height="400">   
+
+<b>Procedures:</b>  
+
 1. See a picture of a dog and save brain wave data from Alpha, Beta, Gamma and Theta waves (variable muse in notebook - museMonitor_train1.csv)  
 
 2. Develop a convolutional autoencoder with brain wave data as input and dog image as output  
