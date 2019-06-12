@@ -2,13 +2,13 @@
 
 <b>Procedures:</b>  
 
-1. See a picture of a dog and save brain wave data from Alpha, Beta, Gamma and Theta waves (variable muse in notebook)  
+1. See a picture of a dog and save brain wave data from Alpha, Beta, Gamma and Theta waves (variable muse in notebook - museMonitor_train1.csv)  
 
 2. Develop a convolutional autoencoder with brain wave data as input and dog image as output  
 
 3. Train the autoencoder and save weights  
 
-4. Predict image from new brain waves (variable muse2 in notebook)    
+4. Predict image from new brain waves (variable muse2 in notebook - museMonitor_test.csv)    
 
 <b>Notebook:</b>  
 
