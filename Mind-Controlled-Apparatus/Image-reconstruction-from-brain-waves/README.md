@@ -12,6 +12,6 @@
 
 <b>Notebook:</b>  
 
-<a href="https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Image-reconstruction-from-brain-waves/Muse_start_reconstruct.ipynb">Jupyter Notebook</a>
+<a href="https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Image-reconstruction-from-brain-waves/Muse_start_reconstruct.ipynb" target="_blank">Jupyter Notebook</a>
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Image-reconstruction-from-brain-waves/muse_dog.jpg width="400" height="400">       <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Image-reconstruction-from-brain-waves/reconstruct.png width="400" height="400">
