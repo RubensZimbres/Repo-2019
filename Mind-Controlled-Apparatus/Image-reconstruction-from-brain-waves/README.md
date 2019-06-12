@@ -8,6 +8,10 @@
 
 3. Train the autoencoder and save weights  
 
-4. Predict image from new brain waves (variable muse2 in notebook)  
+4. Predict image from new brain waves (variable muse2 in notebook)    
+
+<b>Notebook:</b>  
+
+<a href="https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Image-reconstruction-from-brain-waves/Muse_start_reconstruct.ipynb">Jupyter Notebook</a>
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Image-reconstruction-from-brain-waves/muse_dog.jpg width="400" height="400">       <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Image-reconstruction-from-brain-waves/reconstruct.png width="400" height="400">
