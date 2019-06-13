@@ -4,6 +4,13 @@
 
 Brain Wave reader: Muse: 4 points: 2 in frontal, 2 in temporal.
 
+```
+$ chmod +x museresearchtools-3.4.2-linux-installer.run
+$ ./museresearchtools-3.4.2-linux-installer.run
+$ sudo apt-get install libxrender1:i386 libxtst6:i386 libxi6:i386
+$ ./MuseLab
+```
+
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/Muse_Monitor/Screenshot_20190610-164617_Muse%20Monitor.jpg width="250" height="400"> <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/Muse_Monitor/Screenshot_20190610-164542_Muse%20Monitor.jpg width="250" height="400"> <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/Muse_Monitor/Screenshot_20190610-164515_Muse%20Monitor.jpg width="250" height="400"> <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/Muse_Monitor/Screenshot_20190610-164341_Muse%20Monitor.jpg width="250" height="400"> <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/Muse_Monitor/Screenshot_20190610-161054_Muse%20Monitor.jpg width="250" height="400">   
 
 <b>Procedures:</b>  
