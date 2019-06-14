@@ -38,3 +38,7 @@ $ gsutil cp /home/gpt-2/* gs://gpt-2-storage
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/OpenAI-GPT-2/PIcs/gpt-2_5.JPG>  
 
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/OpenAI-GPT-2/PIcs/gpt-2_02.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/OpenAI-GPT-2/PIcs/gpt-2_03.png>  
+
