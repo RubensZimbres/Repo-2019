@@ -1,6 +1,6 @@
 # Tensorflow Transformer  
 
-Implementation os Attention is All You Need paper
+Replication of code from Attention is All You Need paper
 
 ```
 $ pip install tf-nightly-gpu
