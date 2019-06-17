@@ -23,6 +23,6 @@ $ ~/models$ python transformer_main.py --data_dir=/home/rubens/models/official/t
 
 # Change vocab_size from 33708 to 33945 in model_params.py #4974 (https://github.com/tensorflow/models/issues/4900)
 
-vi /models/official/transformer/model/model_params.py
+$ vi /models/official/transformer/model/model_params.py
 
 ```
