@@ -19,7 +19,7 @@ $ python transformer_main.py --data_dir=/home/rubens/anaconda3/models/data --mod
 
 ### TPU
 
-$ ~/models$ python transformer_main.py --data_dir=/home/rubens/models/official/transformer/data --model_dir=/home/rubens/models/checkpoints --vocab_file=/home/rubens/models/official/transformer/data/vocab.ende.32768 --param_set=big  --train_steps=20000 --steps_between_evals=1000 --bleu_source=/home/rubens/models/official/transformer/data/newstest2014.en --bleu_ref=/home/rubens/models/official/transformer/data/newstest2014.de
+~/models$ python transformer_main.py --data_dir=/home/rubens/models/official/transformer/data --model_dir=/home/rubens/models/checkpoints --vocab_file=/home/rubens/models/official/transformer/data/vocab.ende.32768 --param_set=big  --train_steps=20000 --steps_between_evals=1000 --bleu_source=/home/rubens/models/official/transformer/data/newstest2014.en --bleu_ref=/home/rubens/models/official/transformer/data/newstest2014.de
 
 # Change vocab_size from 33708 to 33945 in model_params.py #4974 (https://github.com/tensorflow/models/issues/4900)
 
