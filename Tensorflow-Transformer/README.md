@@ -1,6 +1,6 @@
 # Tensorflow - Transformer Translation Model  
 
-Replication of code from Attention is All You Need paper
+Replication of code from "Attention is All You Need" paper
 
 ```
 $ pip install tensorflow==1.12.0
@@ -34,4 +34,4 @@ https://github.com/tensorflow/models/pull/4974
 
 # Training  
 
-<img src=>
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow-Transformer/Pics/training01.png>
