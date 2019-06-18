@@ -1,4 +1,4 @@
-# Tensorflow Transformer  
+# Tensorflow - Transformer Translation Model  
 
 Replication of code from Attention is All You Need paper
 
