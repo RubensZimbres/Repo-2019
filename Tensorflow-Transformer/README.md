@@ -3,10 +3,8 @@
 Replication of code from Attention is All You Need paper
 
 ```
-$ pip uninstall tensorflow
-$ pip uninstall tensorflow-gpu
-$ pip install tensorflow==1.8.0
-$ pip install tensorflow-gpu==1.8.0
+$ pip install tensorflow==1.12.0
+$ pip install tensorflow-gpu==1.12.0
 $ pip install tf-nightly-gpu
 $ git clone https://github.com/tensorflow/models
 
@@ -33,3 +31,5 @@ https://github.com/tensorflow/models/pull/4974
 # Training  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow-Transformer/Pics/transformer0.png>
+
+<img src=>
