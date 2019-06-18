@@ -13,6 +13,10 @@ $ mkdir data
 
 ~/anaconda3/models/official/transformer$ cp data_download.py /home/rubens/anaconda3/models/data_download.py
 
+# tar -xvf
+
+~/data$ rm newtest2014.tgz
+
 $ cd ~/anaconda3/models
 
 $ python data_download.py --data_dir=/home/rubens/anaconda3/models/data
