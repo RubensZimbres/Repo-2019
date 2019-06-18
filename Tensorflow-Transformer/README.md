@@ -30,6 +30,4 @@ https://github.com/tensorflow/models/pull/4974
 
 # Training  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow-Transformer/Pics/transformer0.png>
-
 <img src=>
