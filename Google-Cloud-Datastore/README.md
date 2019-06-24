@@ -10,7 +10,7 @@ SELECT __key__.name,atendente,cliente FROM `speech-12345.datastore.query_json` L
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-Datastore/BigQuery_0.JPG>  
 
-# POwer BI
+# Power BI
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-Datastore/PowerBI_0.JPG>
 
