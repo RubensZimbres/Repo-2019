@@ -1,6 +1,6 @@
 # Google Cloud Datastore  
  
-<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-Cloud-Datastore/datastore_0.JPG>
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-Datastore/datastore_22.JPG>
 
 # Google Big Query  
 
