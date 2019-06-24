@@ -1,6 +1,6 @@
 # Google Cloud Datastore  
  
-<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-Cloud-Datastore/datastore.png>
+<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Google-Cloud-Datastore/datastore_0.JPG>
 
 # Google Big Query  
 
@@ -9,6 +9,8 @@ SELECT __key__.name,atendente,cliente FROM `speech-12345.datastore.query_json` L
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-Datastore/BigQuery_0.JPG>  
+
+# POwer BI
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-Datastore/PowerBI_0.JPG>
 
