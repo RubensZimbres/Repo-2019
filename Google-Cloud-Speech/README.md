@@ -3,7 +3,8 @@
 <b>FFMPEG</b>  
 
 ```
-ffmpeg -i ggf_1.mp3 -ac 2 -ab 128k -filter:a volume=0.95 -filter:a equalizer=f=8000:t=h:w=2:g=0.5 -filter:a dynaudnorm ggf_output.wav
+ffmpeg -i ggf_1.mp3 -ac 2 -ab 128k -af silenceremove=0:0:0:1:5:-25dB -filter:a volume=0.95 -filter:a equalizer=f=8000:t=h:w=1:g=-5 -filter:a dynaudnorm ggf_output_sil.wav
+
 
 ```
 <b>Where:</b>  
