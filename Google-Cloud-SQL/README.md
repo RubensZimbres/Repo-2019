@@ -1,4 +1,4 @@
-# Google Cloud SQL
+# Google Cloud MySQL
 
 ```
 $ CREATE TABLE DadosTese; 
@@ -9,3 +9,5 @@ $ USE DadosTese; CREATE TABLE tabela (c0_objetivos VARCHAR(255),	c0_responsab  V
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-SQL/Pics/SQL_instance.png>  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-SQL/Pics/Cloud_SQL.png>  
+
+<b>To PowerBI:</b> https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-8.0.16.msi
