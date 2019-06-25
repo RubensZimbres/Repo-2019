@@ -17,4 +17,4 @@ width_type – for defining the bandwidth, can be one of h (Hz), q (Q), o (octav
 w – the value of the chosen bandwidth  
 g – the gain  
 
-<img src=>
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-Speech/audio_ggf0.png width="800" height="600">
