@@ -4,11 +4,10 @@
 
 ```
 ffmpeg -i ggf_1.mp3 -ac 2 -ab 128k -af silenceremove=0:0:0:1:5:-25dB -filter:a volume=0.95 -filter:a equalizer=f=8000:t=h:w=1:g=-5 -filter:a dynaudnorm ggf_output_sil.wav
-
-
 ```
 <b>Where:</b>  
 
+-silenceremove: start_periods:start_duration:start_threshold:stop_periods:stop_duration:stop_threshold
 -ac – Set the number of audio channels (1,2)  
 -ab – Indicates the audio bitrate (8k, 128k, 256k)  
 -ar – Set the audio frequency of the output file (22050, 44100, 48000 Hz)  
