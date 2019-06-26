@@ -5,15 +5,15 @@ client = speech.SpeechClient()
 config = speech.types.RecognitionConfig(
     encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
     sample_rate_hertz=8000,
-    enable_word_time_offsets= True,
+    enable_word_time_offsets= False,
     language_code='pt-BR',
     enable_automatic_punctuation= True,
     use_enhanced=True,
-    speech_contexts=[speech.types.SpeechContext(phrases=['boleto','nome','telefone', 'endereço','senhor','senhora'])],
+    speech_contexts=[speech.types.SpeechContext(phrases=['pacote','linha', 'endereço','data de nascimento','telefone','celular','senhor','senhora'])],
     enable_speaker_diarization=False,
 #   diarization_speaker_count=2,
     audio_channel_count=2,
-    profanity_filter=False,
+    profanity_filter=True,
     enable_separate_recognition_per_channel=True)
 
 audio=speech.types.RecognitionAudio(uri="gs://folder/ggf_output.wav")
