@@ -4,6 +4,9 @@
 
 ```
 ffmpeg -i ggf_1.mp3 -ac 2 -ab 128k -af silenceremove=0:0:0:1:5:-25dB -filter:a volume=1.85 -filter:a equalizer=f=8000:t=h:w=1:g=-5 -filter:a dynaudnorm ggf_output.wav
+
+ffmpeg -i ggf_1.mp3 -ac 2 -ab 128k -af silenceremove=0:0:0:1:5:-25dB -filter:a volume=3:c0 -filter:a equalizer=f=8000:t=h:w=1:g=15 -filter:a dynaudnorm ggf_output_gain.wav
+
 ```
 <b>Where:</b>  
 
