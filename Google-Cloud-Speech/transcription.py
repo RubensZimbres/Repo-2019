@@ -24,6 +24,5 @@ print('Waiting for operation to complete...')
 
 response = operation.result(timeout=10000)
 
-
 for i in range(0,len(response.results)):
     print('Speaker:',response.results[i].channel_tag,response.results[i].alternatives[0].transcript)
