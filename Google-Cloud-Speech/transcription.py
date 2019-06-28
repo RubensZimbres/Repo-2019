@@ -7,8 +7,9 @@ client = speech.SpeechClient()
 
 config = speech.types.RecognitionConfig(
     encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
+#    model='command_and_search',
     sample_rate_hertz=8000,
-    enable_word_time_offsets= False,
+    enable_word_time_offsets= True,
     language_code='pt-BR',
     enable_automatic_punctuation= True,
     use_enhanced=True,
