@@ -13,7 +13,7 @@ config = speech.types.RecognitionConfig(
     language_code='pt-BR',
     enable_automatic_punctuation= True,
     use_enhanced=True,
-    speech_contexts=[speech.types.SpeechContext(phrases=['sim','não','pacote','linha', 'endereço','data','telefone','celular','número da linha','senhor','senhora'])],
+    speech_contexts=[speech.types.SpeechContext(phrases=['sim','não','pacote','linha', 'endereço','data','telefone','senhor','senhora'])],
 #    enable_speaker_diarization=False,
 #    diarization_speaker_count=2,
     audio_channel_count=2,
