@@ -19,4 +19,6 @@ g – the gain
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-Speech/Pics/audio_ggf0.png width="865" height="600">  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-Speech/Pics/ffmpeg_analysis.png>
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-Speech/Pics/ffmpeg_analysis.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-Speech/Pics/match1.png>  
