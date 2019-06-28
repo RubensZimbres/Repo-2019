@@ -7,18 +7,19 @@ client = speech.SpeechClient()
 
 config = speech.types.RecognitionConfig(
     encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
-#    model='command_and_search',
+    model='command_and_search',
     sample_rate_hertz=8000,
     enable_word_time_offsets= True,
     language_code='pt-BR',
     enable_automatic_punctuation= True,
     use_enhanced=True,
     speech_contexts=[speech.types.SpeechContext(phrases=['sim','não','pacote','linha', 'endereço','data','telefone','celular','número da linha','senhor','senhora'])],
-#   enable_speaker_diarization=False,
-#   diarization_speaker_count=2,
+#    enable_speaker_diarization=False,
+#    diarization_speaker_count=2,
     audio_channel_count=2,
     profanity_filter=True,
     enable_separate_recognition_per_channel=True)
+
 
 audio=speech.types.RecognitionAudio(uri="gs://folder/ggf_output.wav")
 
