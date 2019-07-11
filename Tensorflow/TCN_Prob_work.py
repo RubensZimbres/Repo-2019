@@ -8,7 +8,7 @@ dataframe = pd.read_csv('international-airline-passengers.csv', usecols=[1], eng
 dataset = dataframe.values
 dataset = dataset.astype('float32')
 
-look_back=1
+look_back=10
 np.random.seed(7)
 scaler = MinMaxScaler(feature_range=(0, 1))
 dataset = scaler.fit_transform(dataset)
@@ -65,7 +65,7 @@ class TemporalConvNet(tf.layers.Layer):
 
 learning_rate = 0.001
 display_step = 10
-num_input = 1
+num_input = 10
 num_hidden = 20
 num_classes = 1
 
@@ -163,7 +163,7 @@ graph = tf.Graph()
 with graph.as_default():
     tf.set_random_seed(10)
     
-    X = tf.placeholder("float", [None, look_back, num_input])
+    X = tf.placeholder("float", [None, 1, num_input])
     Y = tf.placeholder("float", [None, num_classes])
     is_training = tf.placeholder("bool")
     
@@ -178,11 +178,10 @@ with graph.as_default():
     loss_op = tf.losses.mean_squared_error(
         labels=Y,predictions=prediction)
     
-    accuracy,acc_op=tf.metrics.accuracy(labels=Y,predictions=prediction)
+    accuracy=tf.reduce_mean(tf.cast(tf.equal(prediction, Y), tf.float32))
 
-    with tf.name_scope("optimizer"):
-        optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
-        train_op = optimizer.minimize(loss_op)
+    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
+    train_op = optimizer.minimize(loss_op)
 
 
     saver = tf.train.Saver()
@@ -204,12 +203,12 @@ config.gpu_options.allow_growth = False
 config.gpu_options.per_process_gpu_memory_fraction = 0.7
 best_val_acc = 0.85
 
-training_epochs = 1000
-batch_size = 60
+training_epochs = 400
+batch_size = X0.shape[0]
 total_batch = int(Y0.shape[1] / batch_size)
 
-X0=X0.reshape(-1,1,1)
-testX=testX.reshape(-1,1,1)
+X0=X0.reshape(-1,1,10)
+testX=testX.reshape(-1,1,10)
 
 with tf.Session(graph=graph, config=config) as sess:
     init = tf.group(tf.global_variables_initializer(), tf.local_variables_initializer())
@@ -234,7 +233,7 @@ with tf.Session(graph=graph, config=config) as sess:
                 best_val_acc = val_acc
                 save_path = saver.save(sess, "/home/rubens/Documents/Dados/model.ckpt")
                 print("Model saved in path: %s" % save_path)
-    pred00 = sess.run([prediction],feed_dict={X: x_test_ok, is_training: False})
+    pred00 = sess.run([prediction],feed_dict={X: test_data, is_training: False})
 
 
 with tf.Session(graph=graph, config=config) as session:
