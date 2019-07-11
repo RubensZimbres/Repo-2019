@@ -77,6 +77,33 @@ for step, (x, y) in enumerate(dataset):
         
         
 '''MLP'''
+class BahdanauAttention(Layer):
+  def __init__(self, units):
+    super(BahdanauAttention, self).__init__()
+    self.W1 = tf.keras.layers.Dense(units)
+    self.W2 = tf.keras.layers.Dense(units)
+    self.V = tf.keras.layers.Dense(1)
+
+  def call(self, values):
+    # hidden shape == (batch_size, hidden size)
+    # hidden_with_time_axis shape == (batch_size, 1, hidden size)
+    # we are doing this to perform addition to calculate the score
+    hidden_with_time_axis = tf.expand_dims(values, 1)
+    # score shape == (batch_size, max_length, 1)
+    # we get 1 at the last axis because we are applying score to self.V
+    # the shape of the tensor before applying self.V is (batch_size, max_length, units)
+    score = self.V(tf.nn.tanh(
+        self.W1(values) + self.W2(hidden_with_time_axis)))
+
+    # attention_weights shape == (batch_size, max_length, 1)
+    attention_weights = tf.nn.softmax(score, axis=1)
+
+    # context_vector shape after sum == (batch_size, hidden_size)
+    context_vector = attention_weights * values
+    context_vector = tf.reduce_sum(context_vector, axis=1)
+
+    return context_vector
+
 
 class MLP(Layer):
     """Simple stack of Linear layers."""
@@ -84,11 +111,14 @@ class MLP(Layer):
     def __init__(self):
         super(MLP, self).__init__()
         self.linear_1 = Linear(32)
+        self.attention=BahdanauAttention(10)
         self.linear_2 = Linear(32)
         self.linear_3 = Linear(10)
 
     def call(self, inputs):
         x = self.linear_1(inputs)
+        x = tf.nn.relu(x)
+        x = self.attention(x)
         x = tf.nn.relu(x)
         x = self.linear_2(x)
         x = tf.nn.relu(x)
@@ -102,6 +132,7 @@ dataset = tf.data.Dataset.from_tensor_slices(
     (x_train.reshape(60000, 784).astype('float32') / 255, y_train))
 dataset = dataset.shuffle(buffer_size=1024).batch(64)
 
+
 # Instantiate a logistic loss function that expects integer targets.
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 
@@ -109,13 +140,14 @@ loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 optimizer = tf.keras.optimizers.SGD(learning_rate=1e-3)
 
 
-for i in range(0,500):
-    for x, y in dataset:
-      
-      # Open a GradientTape.
+
+for step, (x, y) in enumerate(dataset):
+  
+  # Open a GradientTape.
+    for i in range(0,30):
         with tf.GradientTape() as tape:
-    
-        # Forward pass.
+
+    # Forward pass.
             logits = mlp(x)
     
         # Loss value for this batch.
@@ -131,7 +163,7 @@ for i in range(0,500):
         if step % 100 == 0:
             print(step, float(loss))
 
-        #print(y-tf.cast(tf.argmax(logits,axis=1),tf.uint8))
+    print(y-tf.cast(tf.argmax(logits,axis=1),tf.uint8))
     
     
     
