@@ -152,6 +152,7 @@ class TemporalBlock(tf.layers.Layer):
         x = self.conv2(x)
         x = tf.contrib.layers.layer_norm(x)
         x = self.dropout2(x, training=training)
+        x = tfp.layers.DistributionLambda(lambda t: tfd.Normal(loc=t, scale=1))(x)
         if self.down_sample is not None:
             inputs = self.down_sample(inputs)
         return tf.nn.relu(x + inputs)
@@ -183,7 +184,6 @@ with graph.as_default():
     optimizer = tf.train.AdamOptimizer(learning_rate=0.001)
     train_op = optimizer.minimize(loss_op)
 
-    init = tf.group(tf.global_variables_initializer(), tf.local_variables_initializer())
 
     saver = tf.train.Saver()
     print("All parameters:", np.sum([np.product([xi.value for xi in x.get_shape()]) for x in tf.global_variables()]))
@@ -204,7 +204,7 @@ config.gpu_options.allow_growth = False
 config.gpu_options.per_process_gpu_memory_fraction = 0.7
 best_val_acc = 0.85
 
-training_epochs = 400
+training_epochs = 2000
 batch_size = X0.shape[0]
 
 
@@ -212,6 +212,7 @@ X0=X0.reshape(-1,look_back,1)
 testX=testX.reshape(-1,look_back,1)
 
 with tf.Session(graph=graph, config=config) as sess:
+    init = tf.group(tf.global_variables_initializer(), tf.local_variables_initializer())
     sess.run(init)
     for step in range(1, training_epochs+1):
         Xt, Yt = next_batch(batch_size, X0, Y0)
@@ -235,10 +236,10 @@ with tf.Session(graph=graph, config=config) as sess:
                 print("Model saved in path: %s" % save_path)
     pred00 = sess.run([prediction],feed_dict={X: test_data, is_training: False})
 
+pred00-testY
 
 with tf.Session(graph=graph, config=config) as session:
-    ckpt = "/home/rubens/Documents/Dados/model.ckpt"
+    ckpt = "/home/rubens/Documents/Dados/model.ckpt.index"
     saver.restore(session, ckpt)
     pred00 = session.run([prediction], feed_dict={X: x_test_ok, is_training: False})
 
-pred00-testY
