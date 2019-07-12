@@ -10,4 +10,8 @@ https://github.com/tensorflow/tensorflow/issues/28801
 
 # Keras Pruning  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/keras_pruning_0.png>
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/keras_pruning_0.png>  
+
+# Temporal Convolutional Networks + Tensorflow Probability  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/TCN_Prob_2_Classes.PNG>
