@@ -8,6 +8,11 @@ dataframe = pd.read_csv('international-airline-passengers.csv', usecols=[1], eng
 dataset = dataframe.values
 dataset = dataset.astype('float32')
 
+def norm(x):
+    return (x-np.min(x))/(np.max(x)-np.min(x))
+
+#dataset=norm(dataset)
+
 look_back=3
 np.random.seed(7)
 scaler = MinMaxScaler(feature_range=(0, 1))
@@ -65,7 +70,7 @@ class TemporalConvNet(tf.layers.Layer):
 
 learning_rate = 0.001
 display_step = 10
-num_input = 10
+num_input = 1
 num_hidden = 20
 num_classes = 1
 
@@ -116,8 +121,9 @@ class CausalConv1D(tf.layers.Conv1D):
         return super(CausalConv1D, self).call(inputs)
 
 
+
 class TemporalBlock(tf.layers.Layer):
-    def __init__(self, n_outputs, kernel_size, strides, dilation_rate, dropout=0.2, 
+    def __init__(self, n_outputs, kernel_size, strides, dilation_rate, dropout=0.1, 
                  trainable=True, name=None, dtype=None, 
                  activity_regularizer=None, **kwargs):
         super(TemporalBlock, self).__init__(
@@ -155,7 +161,7 @@ class TemporalBlock(tf.layers.Layer):
         x = tfp.layers.DistributionLambda(lambda t: tfd.Normal(loc=t, scale=1))(x)
         if self.down_sample is not None:
             inputs = self.down_sample(inputs)
-        return tf.nn.relu(x + inputs)
+        return tf.nn.relu(x)
 
 
 
@@ -174,17 +180,17 @@ with graph.as_default():
         num_classes, activation=None, 
         kernel_initializer=tf.glorot_uniform_initializer()
     )
-    #mm,_=tf.nn.moments(tf.nn.relu(logits),axes=[1])
+    mm,_=tf.nn.moments(tf.nn.relu(logits),axes=[1])
     prediction=tf.nn.relu(logits)
     
-    #prediction2 = tf.reshape(tf.cast(mm,tf.float32),[-1,1])
+    prediction2 = tf.reshape(tf.cast(mm,tf.float32),[-1,1])
     
     loss_op = tf.reduce_mean(tf.losses.mean_squared_error(
         labels=Y,predictions=prediction))
     
     accuracy=1-tf.sqrt(loss_op)
 
-    optimizer = tf.train.AdamOptimizer(learning_rate=0.0001)
+    optimizer = tf.train.AdamOptimizer(learning_rate=0.0003)
     train_op = optimizer.minimize(loss_op)
 
 
@@ -205,10 +211,10 @@ tb_writer = tf.summary.FileWriter(log_dir, graph)
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = False
 config.gpu_options.per_process_gpu_memory_fraction = 0.7
-best_val_acc = 0.85
+best_val_acc = 0.7
 
-training_epochs = 1400
-batch_size = X0.shape[0]
+training_epochs = 6000
+batch_size = int(X0.shape[0]/5)
 
 
 X0=X0.reshape(-1,look_back,1)
@@ -224,13 +230,12 @@ with tf.Session(graph=graph, config=config) as sess:
         if step % display_step == 0 or step == 1:
             loss, acc = sess.run([loss_op, accuracy], feed_dict={
                 X: batch_x, Y: batch_y, is_training: False})
-            test_len = 19
             test_data = testX
             test_label = testY
             val_acc = sess.run(accuracy, feed_dict={X: test_data, Y: test_label, is_training: False})
             print("Step " + str(step) + ", Minibatch Loss= " + \
                   "{:.4f}".format(loss) + ", Training Accuracy= " + \
-                  "{:.4f}".format(acc) + " + , Test Accuracy= " + \
+                  "{:.4f}".format(acc) + ", Test Accuracy= " + \
                   "{:.4f}".format(val_acc))
             print(acc)
             if val_acc > best_val_acc:
@@ -241,8 +246,8 @@ with tf.Session(graph=graph, config=config) as sess:
 
 pred00-testY
 
-#with tf.Session(graph=graph, config=config) as session:
- #   ckpt = "/home/rubens/Documents/Dados/model.ckpt.index"
-  #  saver.restore(session, ckpt)
-   # pred00 = session.run([prediction], feed_dict={X: x_test_ok, is_training: False})
+with tf.Session(graph=graph, config=config) as session:
+    ckpt = "/home/rubens/Documents/Dados/model.ckpt"
+    saver.restore(session, ckpt)
+    pred00 = session.run([prediction], feed_dict={X: test_data, is_training: False})
 
