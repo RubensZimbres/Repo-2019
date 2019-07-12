@@ -251,3 +251,5 @@ pred00-testY
   #  saver.restore(session, ckpt)
    # pred00 = session.run([prediction], feed_dict={X: test_data, is_training: False})
 
+Step 4990, Minibatch Loss= 0.0084, Training Accuracy= 0.9081, Test Accuracy= 0.7497 
+Step 5000, Minibatch Loss= 0.0117, Training Accuracy= 0.8919, Test Accuracy= 0.7392
