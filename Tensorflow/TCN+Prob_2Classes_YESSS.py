@@ -11,6 +11,8 @@ dataset = dataset.astype('float32')
 def norm(x):
     return (x-np.min(x))/(np.max(x)-np.min(x))
 
+#dataset=norm(dataset)
+
 look_back=3
 np.random.seed(7)
 scaler = MinMaxScaler(feature_range=(0, 1))
@@ -178,7 +180,7 @@ with graph.as_default():
         num_classes, activation=None, 
         kernel_initializer=tf.glorot_uniform_initializer()
     )
-    
+    print(logits)
 
     mm,_=tf.nn.moments(tf.reshape(tf.nn.relu(logits),[-1,3]),axes=[1])
     prediction=tf.nn.relu(logits)
@@ -211,9 +213,9 @@ tb_writer = tf.summary.FileWriter(log_dir, graph)
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = False
 config.gpu_options.per_process_gpu_memory_fraction = 0.7
-best_val_acc = 0.8
+best_val_acc = 0.82
 
-training_epochs = 1500
+training_epochs = 10000
 batch_size = X0.shape[0]
 
 
@@ -242,7 +244,9 @@ with tf.Session(graph=graph, config=config) as sess:
                 best_val_acc = val_acc
                 save_path = saver.save(sess, "/home/rubens/Documents/Dados/model.ckpt")
                 print("Model saved in path: %s" % save_path)
-    pred00 = sess.run([prediction],feed_dict={X: test_data, is_training: False})
+    pred00 = sess.run([prediction2],feed_dict={X: test_data, is_training: False})
+
+
 
 with tf.Session(graph=graph, config=config) as session:
     ckpt = "/home/rubens/Documents/Dados/model.ckpt"
