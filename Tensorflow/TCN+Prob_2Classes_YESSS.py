@@ -11,8 +11,6 @@ dataset = dataset.astype('float32')
 def norm(x):
     return (x-np.min(x))/(np.max(x)-np.min(x))
 
-#dataset=norm(dataset)
-
 look_back=3
 np.random.seed(7)
 scaler = MinMaxScaler(feature_range=(0, 1))
@@ -246,17 +244,12 @@ with tf.Session(graph=graph, config=config) as sess:
                 print("Model saved in path: %s" % save_path)
     pred00 = sess.run([prediction],feed_dict={X: test_data, is_training: False})
 
-pred00-testY
-
-#with tf.Session(graph=graph, config=config) as session:
- #   ckpt = "/home/rubens/Documents/Dados/model.ckpt"
-  #  saver.restore(session, ckpt)
-   # pred00 = session.run([prediction], feed_dict={X: test_data, is_training: False})
+with tf.Session(graph=graph, config=config) as session:
+    ckpt = "/home/rubens/Documents/Dados/model.ckpt"
+    saver.restore(session, ckpt)
+    pred00 = session.run([prediction], feed_dict={X: test_data, is_training: False})
 
 import matplotlib.pyplot as plt
 plt.plot(np.array(pred00).reshape(-1,3))
 plt.plot(np.array(testY).reshape(-1,))
 plt.show()
-
-
-plt.hist(np.array(pred00).reshape(-1,)-np.array(testY).reshape(-1,))
