@@ -252,8 +252,17 @@ with tf.Session(graph=graph, config=config) as session:
     ckpt = "/home/rubens/Documents/Dados/model.ckpt"
     saver.restore(session, ckpt)
     pred00 = session.run([prediction], feed_dict={X: test_data, is_training: False})
+    pred01 = session.run([prediction2], feed_dict={X: test_data, is_training: False})
 
 import matplotlib.pyplot as plt
 plt.plot(np.array(pred00).reshape(-1,3))
 plt.plot(np.array(testY).reshape(-1,))
+plt.xlabel('Months')
+plt.ylabel('Sales')
+plt.show()
+
+plt.plot(np.array(pred01).reshape(-1,1))
+plt.plot(np.array(testY).reshape(-1,))
+plt.xlabel('Months')
+plt.ylabel('Sales')
 plt.show()
