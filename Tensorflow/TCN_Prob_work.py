@@ -8,7 +8,7 @@ dataframe = pd.read_csv('international-airline-passengers.csv', usecols=[1], eng
 dataset = dataframe.values
 dataset = dataset.astype('float32')
 
-look_back=10
+look_back=3
 np.random.seed(7)
 scaler = MinMaxScaler(feature_range=(0, 1))
 dataset = scaler.fit_transform(dataset)
@@ -17,7 +17,7 @@ test_size = len(dataset) - train_size
 train, test = dataset[0:train_size,:], dataset[train_size:len(dataset),:]
 print(len(train), len(test))
 
-def create_dataset(dataset, look_back=1):
+def create_dataset(dataset, look_back=look_back):
 	dataX, dataY = [], []
 	for i in range(len(dataset)-look_back):
 		a = dataset[i:(i+look_back), 0]
@@ -163,7 +163,7 @@ graph = tf.Graph()
 with graph.as_default():
     tf.set_random_seed(10)
     
-    X = tf.placeholder("float", [None, 1, num_input])
+    X = tf.placeholder("float", [None, look_back,1])
     Y = tf.placeholder("float", [None, num_classes])
     is_training = tf.placeholder("bool")
     
@@ -175,14 +175,15 @@ with graph.as_default():
     )
     prediction = tf.nn.relu(logits)
    
-    loss_op = tf.losses.mean_squared_error(
-        labels=Y,predictions=prediction)
+    loss_op = tf.reduce_mean(tf.losses.mean_squared_error(
+        labels=Y,predictions=prediction))
     
-    accuracy=tf.reduce_mean(tf.cast(tf.equal(prediction, Y), tf.float32))
+    accuracy=1-tf.sqrt(loss_op)
 
-    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
+    optimizer = tf.train.AdamOptimizer(learning_rate=0.001)
     train_op = optimizer.minimize(loss_op)
 
+    init = tf.group(tf.global_variables_initializer(), tf.local_variables_initializer())
 
     saver = tf.train.Saver()
     print("All parameters:", np.sum([np.product([xi.value for xi in x.get_shape()]) for x in tf.global_variables()]))
@@ -205,13 +206,12 @@ best_val_acc = 0.85
 
 training_epochs = 400
 batch_size = X0.shape[0]
-total_batch = int(Y0.shape[1] / batch_size)
 
-X0=X0.reshape(-1,1,10)
-testX=testX.reshape(-1,1,10)
+
+X0=X0.reshape(-1,look_back,1)
+testX=testX.reshape(-1,look_back,1)
 
 with tf.Session(graph=graph, config=config) as sess:
-    init = tf.group(tf.global_variables_initializer(), tf.local_variables_initializer())
     sess.run(init)
     for step in range(1, training_epochs+1):
         Xt, Yt = next_batch(batch_size, X0, Y0)
@@ -220,7 +220,7 @@ with tf.Session(graph=graph, config=config) as sess:
         if step % display_step == 0 or step == 1:
             loss, acc = sess.run([loss_op, accuracy], feed_dict={
                 X: batch_x, Y: batch_y, is_training: False})
-            test_len = 100
+            test_len = 19
             test_data = testX
             test_label = testY
             val_acc = sess.run(accuracy, feed_dict={X: test_data, Y: test_label, is_training: False})
@@ -242,4 +242,3 @@ with tf.Session(graph=graph, config=config) as session:
     pred00 = session.run([prediction], feed_dict={X: x_test_ok, is_training: False})
 
 pred00-testY
-
