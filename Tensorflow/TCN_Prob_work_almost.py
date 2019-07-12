@@ -162,7 +162,7 @@ class TemporalBlock(tf.layers.Layer):
 tf.reset_default_graph()
 graph = tf.Graph()
 with graph.as_default():
-    tf.set_random_seed(10)
+    tf.set_random_seed(2)
     
     X = tf.placeholder("float", [None, look_back,1])
     Y = tf.placeholder("float", [None, num_classes])
@@ -172,17 +172,19 @@ with graph.as_default():
         TemporalConvNet([num_hidden] * levels, kernel_size, dropout)(
             X, training=is_training)[:, -1, :],
         num_classes, activation=None, 
-        kernel_initializer=tf.orthogonal_initializer()
+        kernel_initializer=tf.glorot_uniform_initializer()
     )
-    mm,_=tf.nn.moments(tf.nn.relu(logits),axes=[1])
-    prediction = tf.reshape(tf.cast(mm,tf.float32),[-1,1])
+    #mm,_=tf.nn.moments(tf.nn.relu(logits),axes=[1])
+    prediction=tf.nn.relu(logits)
+    
+    #prediction2 = tf.reshape(tf.cast(mm,tf.float32),[-1,1])
     
     loss_op = tf.reduce_mean(tf.losses.mean_squared_error(
         labels=Y,predictions=prediction))
     
     accuracy=1-tf.sqrt(loss_op)
 
-    optimizer = tf.train.AdamOptimizer(learning_rate=0.008)
+    optimizer = tf.train.AdamOptimizer(learning_rate=0.0001)
     train_op = optimizer.minimize(loss_op)
 
 
@@ -205,7 +207,7 @@ config.gpu_options.allow_growth = False
 config.gpu_options.per_process_gpu_memory_fraction = 0.7
 best_val_acc = 0.85
 
-training_epochs = 2000
+training_epochs = 1400
 batch_size = X0.shape[0]
 
 
