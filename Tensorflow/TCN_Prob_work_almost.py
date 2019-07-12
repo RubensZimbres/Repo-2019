@@ -186,11 +186,11 @@ with graph.as_default():
     prediction2 = tf.reshape(tf.cast(mm,tf.float32),[-1,1])
     
     loss_op = tf.reduce_mean(tf.losses.mean_squared_error(
-        labels=Y,predictions=prediction))
+        labels=Y,predictions=prediction2))
     
     accuracy=1-tf.sqrt(loss_op)
 
-    optimizer = tf.train.AdamOptimizer(learning_rate=0.0003)
+    optimizer = tf.train.AdamOptimizer(learning_rate=0.001)
     train_op = optimizer.minimize(loss_op)
 
 
@@ -213,8 +213,8 @@ config.gpu_options.allow_growth = False
 config.gpu_options.per_process_gpu_memory_fraction = 0.7
 best_val_acc = 0.7
 
-training_epochs = 6000
-batch_size = int(X0.shape[0]/5)
+training_epochs = 5000
+batch_size = X0.shape[0]
 
 
 X0=X0.reshape(-1,look_back,1)
@@ -246,8 +246,8 @@ with tf.Session(graph=graph, config=config) as sess:
 
 pred00-testY
 
-with tf.Session(graph=graph, config=config) as session:
-    ckpt = "/home/rubens/Documents/Dados/model.ckpt"
-    saver.restore(session, ckpt)
-    pred00 = session.run([prediction], feed_dict={X: test_data, is_training: False})
+#with tf.Session(graph=graph, config=config) as session:
+ #   ckpt = "/home/rubens/Documents/Dados/model.ckpt"
+  #  saver.restore(session, ckpt)
+   # pred00 = session.run([prediction], feed_dict={X: test_data, is_training: False})
 
