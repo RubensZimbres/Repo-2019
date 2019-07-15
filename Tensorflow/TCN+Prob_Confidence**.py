@@ -71,10 +71,10 @@ class TemporalConvNet(tf.layers.Layer):
 learning_rate = 0.001
 display_step = 10
 num_input = 1
-num_hidden = 32
+num_hidden = 25
 num_classes = 1
 
-dropout = 0.1
+dropout = 0
 kernel_size = 8
 levels = 6
 
@@ -213,7 +213,7 @@ tb_writer = tf.summary.FileWriter(log_dir, graph)
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = False
 config.gpu_options.per_process_gpu_memory_fraction = 0.7
-best_val_acc = 0.84
+best_val_acc = 0.85
 
 training_epochs = 10000
 batch_size = X0.shape[0]
@@ -244,14 +244,6 @@ with tf.Session(graph=graph, config=config) as sess:
                 save_path = saver.save(sess, "/home/rubens/Documents/Dados/model.ckpt")
                 print("Model saved in path: %s" % save_path)
     pred00 = sess.run([prediction2],feed_dict={X: test_data, is_training: False})
-
-
-
-with tf.Session(graph=graph, config=config) as session:
-    ckpt = "/home/rubens/Documents/Dados/model.ckpt"
-    saver.restore(session, ckpt)
-    pred00 = session.run([prediction], feed_dict={X: test_data, is_training: False})
-    pred01 = session.run([prediction2], feed_dict={X: test_data, is_training: False})
 
 
 with tf.Session(graph=graph, config=config) as session:
