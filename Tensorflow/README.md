@@ -14,6 +14,10 @@ https://github.com/tensorflow/tensorflow/issues/28801
 
 # Temporal Convolutional Networks + Tensorflow Probability  
 
+Time lag = 3  
+
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/TCN+Prob_22.png>  
+
+Time lag = 2  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/TCN_Prob_BEST.png>  
