@@ -15,3 +15,5 @@ https://github.com/tensorflow/tensorflow/issues/28801
 # Temporal Convolutional Networks + Tensorflow Probability  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/TCN+Prob_22.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/TCN_Prob_BEST.png>  
