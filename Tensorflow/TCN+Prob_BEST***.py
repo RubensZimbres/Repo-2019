@@ -13,7 +13,7 @@ def norm(x):
 
 #dataset=norm(dataset)
 
-look_back=3
+look_back=2
 np.random.seed(7)
 scaler = MinMaxScaler(feature_range=(0, 1))
 dataset = scaler.fit_transform(dataset)
@@ -71,7 +71,7 @@ class TemporalConvNet(tf.layers.Layer):
 learning_rate = 0.001
 display_step = 10
 num_input = 1
-num_hidden = 25
+num_hidden = 35
 num_classes = 1
 
 dropout = 0
@@ -184,7 +184,7 @@ with graph.as_default():
     )
     print(logits)
 
-    mm,_=tf.nn.moments(tf.reshape(tf.nn.relu(logits),[-1,3]),axes=[1])
+    mm,_=tf.nn.moments(tf.reshape(tf.nn.relu(logits),[-1,look_back]),axes=[1])
     prediction=tf.nn.relu(logits)
     
     prediction2 = tf.reshape(tf.cast(mm,tf.float32),[-1,1])
@@ -215,7 +215,7 @@ tb_writer = tf.summary.FileWriter(log_dir, graph)
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = False
 config.gpu_options.per_process_gpu_memory_fraction = 0.7
-best_val_acc = 0.85
+best_val_acc = 0.87
 
 training_epochs = 30000
 batch_size = X0.shape[0]
