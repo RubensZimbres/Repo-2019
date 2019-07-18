@@ -163,7 +163,7 @@ class TemporalBlock(tf.layers.Layer):
         x = tf.layers.dense(inputs=x,units=3)
         #if self.down_sample is not None:
         #    inputs = self.down_sample(inputs)
-        return tf.nn.relu(x+inputs)
+        return tf.nn.relu(x)
 
 
 
@@ -255,7 +255,6 @@ with tf.Session(graph=graph, config=config) as session:
     pred00 = session.run([prediction], feed_dict={X: test_data, is_training: False})
     pred01 = session.run([prediction2], feed_dict={X: test_data, is_training: False})
 
-pred00-test_label
 
 import matplotlib.pyplot as plt
 plt.plot(np.array(pred01).reshape(-1,1))
