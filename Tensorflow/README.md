@@ -22,4 +22,4 @@ Time lag = 2
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/TCN_Prob_BEST.png>  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/Sales_Forecast.png>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/Sales_Forecast_2.png>  
