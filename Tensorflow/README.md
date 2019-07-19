@@ -1,4 +1,4 @@
-# Probabilistic Neural Networks in Tensorflow
+# Probabilistic Neural Networks in Tensorflow and Time Series
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/prob001.JPG>
 
@@ -13,6 +13,8 @@ https://github.com/tensorflow/tensorflow/issues/28801
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/keras_pruning_0.png>  
 
 # Temporal Convolutional Networks + Tensorflow Probability  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/ARIMA.png>
 
 Time lag = 3  
 
