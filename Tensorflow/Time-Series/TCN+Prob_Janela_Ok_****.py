@@ -157,11 +157,5 @@ plt.title('Sales Forecast Next 12 Weeks')
 plt.show()
 
 
-#plt.figure(figsize=(10,7))
-#plt.plot(np.linspace(0,len(X0),len(X0)+12),np.concatenate([X0,Y0],axis=0),color='red',label='ground truth',lw=3)
-#plt.plot(forecast_steps, series_forecast_samples.T, lw=1,ls='--',color='black', alpha=0.45)
-##plt.plot(np.array(list(np.linspace(0,len(X0),len(X0)+12))*10).reshape(-1,144), np.concatenate([np.array(list(X0.T[0])*10).reshape(10,-1).T,series_forecast_samples.T],axis=0).T, lw=1,ls='--',color='black', alpha=0.45)
-#plt.plot(forecast_steps, series_forecast_mean, lw=2, ls='--', color='blue',label='forecast')
-#plt.legend(loc=2,prop={'size': 14})
-#plt.title('Sales Forecast Next 12 Weeks')
-#plt.show()
+from sklearn.metrics import r2_score
+print(r2_score(Y0,series_forecast_mean))
