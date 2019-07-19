@@ -11,6 +11,7 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from pandas.plotting import autocorrelation_plot
 
+tf.set_random_seed(666)
 
 dataframe = pd.read_csv('international-airline-passengers.csv', usecols=[1], engine='python', skipfooter=3)
 dataset = dataframe.values
