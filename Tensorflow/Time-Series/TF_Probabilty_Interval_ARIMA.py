@@ -1,4 +1,3 @@
-    
 import matplotlib as mpl
 from matplotlib import pylab as plt
 import matplotlib.dates as mdates
@@ -10,13 +9,23 @@ from tensorflow_probability import distributions as tfd
 from tensorflow_probability import sts
 import pandas as pd  
 from sklearn.preprocessing import MinMaxScaler
-import tensorflow_probability as tfp
+from pandas.plotting import autocorrelation_plot
+
 
 dataframe = pd.read_csv('international-airline-passengers.csv', usecols=[1], engine='python', skipfooter=3)
 dataset = dataframe.values
 dataset = np.array(dataset.astype('float32'))
 
 
+autocorrelation_plot(dataset)
+
+corr=[]
+for i in range(0,len(dataset)):
+    print(i,pd.Series(dataset.T[0]).autocorr(lag=i))
+    corr.append(pd.Series(dataset.T[0]).autocorr(lag=i))
+
+janela=(np.where(corr[1:-2]==np.max(corr[1:-2]))[0]+1)[0]
+    
 X0=dataset[0:-12]
 Y0=dataset[-12:]
 
@@ -80,7 +89,7 @@ for i, component_name in enumerate(component_means_dict.keys()):
 
 from statsmodels.tsa.seasonal import seasonal_decompose
 
-decomposition = seasonal_decompose(X0,freq=15)
+decomposition = seasonal_decompose(X0,freq=janela)
 
 trend = decomposition.trend
 seasonal = decomposition.seasonal
