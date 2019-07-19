@@ -12,7 +12,6 @@ from sklearn.preprocessing import MinMaxScaler
 from pandas.plotting import autocorrelation_plot
 
 tf.set_random_seed(666)
-
 dataframe = pd.read_csv('international-airline-passengers.csv', usecols=[1], engine='python', skipfooter=3)
 dataset = dataframe.values
 dataset = np.array(dataset.astype('float32'))
@@ -22,14 +21,13 @@ autocorrelation_plot(dataset)
 
 corr=[]
 for i in range(0,len(dataset)):
-    print(i,pd.Series(dataset.T[0]).autocorr(lag=i))
+    #print(i,pd.Series(dataset.T[0]).autocorr(lag=i))
     corr.append(pd.Series(dataset.T[0]).autocorr(lag=i))
 
 janela=(np.where(corr[1:-2]==np.max(corr[1:-2]))[0]+1)[0]
     
 X0=dataset[0:-12]
 Y0=dataset[-12:]
-
 
 def build_model(observed_time_series):
   trend = sts.LocalLinearTrend(observed_time_series=observed_time_series)
@@ -47,10 +45,10 @@ with tf.variable_scope('sts_elbo', reuse=tf.AUTO_REUSE):
       series_model,
       observed_time_series=X0)
   
-num_variational_steps = 200 # @param { isTemplate: true}
+num_variational_steps = 1000 # @param { isTemplate: true}
 num_variational_steps = int(num_variational_steps)
 
-train_vi = tf.train.AdamOptimizer(0.1).minimize(elbo_loss)
+train_vi = tf.train.AdamOptimizer(0.07).minimize(elbo_loss)
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
@@ -159,4 +157,13 @@ plt.show()
 
 
 from sklearn.metrics import r2_score
-print(r2_score(Y0,series_forecast_mean))
+print('R2',r2_score(Y0,series_forecast_mean))
+
+#plt.figure(figsize=(10,7))
+#plt.plot(np.linspace(0,len(X0),len(X0)+12),np.concatenate([X0,Y0],axis=0),color='red',label='ground truth',lw=3)
+#plt.plot(forecast_steps, series_forecast_samples.T, lw=1,ls='--',color='black', alpha=0.45)
+##plt.plot(np.array(list(np.linspace(0,len(X0),len(X0)+12))*10).reshape(-1,144), np.concatenate([np.array(list(X0.T[0])*10).reshape(10,-1).T,series_forecast_samples.T],axis=0).T, lw=1,ls='--',color='black', alpha=0.45)
+#plt.plot(forecast_steps, series_forecast_mean, lw=2, ls='--', color='blue',label='forecast')
+#plt.legend(loc=2,prop={'size': 14})
+#plt.title('Sales Forecast Next 12 Weeks')
+#plt.show()
