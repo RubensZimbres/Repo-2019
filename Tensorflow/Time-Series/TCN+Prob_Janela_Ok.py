@@ -1,281 +1,167 @@
-import tensorflow as tf
-import pandas as pd  
+import matplotlib as mpl
+from matplotlib import pylab as plt
+import matplotlib.dates as mdates
+import seaborn as sns
 import numpy as np
-from sklearn.preprocessing import MinMaxScaler
+import tensorflow as tf
 import tensorflow_probability as tfp
+from tensorflow_probability import distributions as tfd
+from tensorflow_probability import sts
+import pandas as pd  
+from sklearn.preprocessing import MinMaxScaler
+from pandas.plotting import autocorrelation_plot
+
 
 dataframe = pd.read_csv('international-airline-passengers.csv', usecols=[1], engine='python', skipfooter=3)
 dataset = dataframe.values
-dataset = dataset.astype('float32')
+dataset = np.array(dataset.astype('float32'))
 
-def norm(x):
-    return (x-np.min(x))/(np.max(x)-np.min(x))
 
-#dataset=norm(dataset)
+autocorrelation_plot(dataset)
+
 corr=[]
 for i in range(0,len(dataset)):
     print(i,pd.Series(dataset.T[0]).autocorr(lag=i))
     corr.append(pd.Series(dataset.T[0]).autocorr(lag=i))
 
 janela=(np.where(corr[1:-2]==np.max(corr[1:-2]))[0]+1)[0]
-
-look_back=janela
-np.random.seed(7)
-scaler = MinMaxScaler(feature_range=(0, 1))
-dataset = scaler.fit_transform(dataset)
-train_size = int(len(dataset) * 0.8)
-test_size = len(dataset) - train_size
-train, test = dataset[0:train_size,:], dataset[train_size:len(dataset),:]
-print(len(train), len(test))
-
-def create_dataset(dataset, look_back=look_back):
-	dataX, dataY = [], []
-	for i in range(len(dataset)-look_back):
-		a = dataset[i:(i+look_back), 0]
-		dataX.append(a)
-		dataY.append(dataset[i + look_back, 0])
-	return np.array(dataX), np.array(dataY)
-
-trainX, trainY = create_dataset(train, look_back)
-testX, testY = create_dataset(test, look_back)
-trainX
-
-trainY = trainY.reshape(len(trainY), 1)
-testY = testY.reshape(len(testY), 1)
-trainY
-
-X0=trainX
-Y0=trainY
-
-tfd = tfp.distributions
-
-class TemporalConvNet(tf.layers.Layer):
-    def __init__(self, num_channels, kernel_size=2, dropout=0.2,
-                 trainable=True, name=None, dtype=None, 
-                 activity_regularizer=None, **kwargs):
-        super(TemporalConvNet, self).__init__(
-            trainable=trainable, dtype=dtype,
-            activity_regularizer=activity_regularizer,
-            name=name, **kwargs
-        )
-        self.layers = []
-        num_levels = len(num_channels)
-        for i in range(num_levels):
-            dilation_size = 2 ** i
-            out_channels = num_channels[i]
-            self.layers.append(
-                TemporalBlock(out_channels, kernel_size, strides=1, dilation_rate=dilation_size,
-                              dropout=dropout, name="tblock_{}".format(i))
-            )
     
-    def call(self, inputs, training=True):
-        outputs = inputs
-        for layer in self.layers:
-            outputs = layer(outputs, training=training)
-        return outputs
-
-learning_rate = 0.001
-display_step = 10
-num_input = 1
-num_hidden = 35
-num_classes = 1
-
-dropout = 0
-kernel_size = 8
-levels = 6
-
-class CausalConv1D(tf.layers.Conv1D):
-    def __init__(self, filters,
-               kernel_size,
-               strides=1,
-               dilation_rate=1,
-               activation=None,
-               use_bias=True,
-               kernel_initializer=None,
-               bias_initializer=tf.zeros_initializer(),
-               kernel_regularizer=None,
-               bias_regularizer=None,
-               activity_regularizer=None,
-               kernel_constraint=None,
-               bias_constraint=None,
-               trainable=True,
-               name=None,
-               **kwargs):
-        super(CausalConv1D, self).__init__(
-            filters=filters,
-            kernel_size=kernel_size,
-            strides=strides,
-            padding='valid',
-            data_format='channels_last',
-            dilation_rate=dilation_rate,
-            activation=activation,
-            use_bias=use_bias,
-            kernel_initializer=kernel_initializer,
-            bias_initializer=bias_initializer,
-            kernel_regularizer=kernel_regularizer,
-            bias_regularizer=bias_regularizer,
-            activity_regularizer=activity_regularizer,
-            kernel_constraint=kernel_constraint,
-            bias_constraint=bias_constraint,
-            trainable=trainable,
-            name=name, **kwargs
-        )
-       
-    def call(self, inputs):
-        padding = (self.kernel_size[0] - 1) * self.dilation_rate[0]
-        inputs = tf.pad(inputs, tf.constant([(0, 0,), (1, 0), (0, 0)]) * padding)
-        return super(CausalConv1D, self).call(inputs)
+X0=dataset[0:-12]
+Y0=dataset[-12:]
 
 
-
-class TemporalBlock(tf.layers.Layer):
-    def __init__(self, n_outputs, kernel_size, strides, dilation_rate, dropout=0.1, 
-                 trainable=True, name=None, dtype=None, 
-                 activity_regularizer=None, **kwargs):
-        super(TemporalBlock, self).__init__(
-            trainable=trainable, dtype=dtype,
-            activity_regularizer=activity_regularizer,
-            name=name, **kwargs
-        )        
-        self.dropout = dropout
-        self.n_outputs = n_outputs
-        self.conv1 = CausalConv1D(
-            n_outputs, kernel_size, strides=strides, 
-            dilation_rate=dilation_rate, activation=tf.nn.relu, 
-            name="conv1")
-        self.conv2 = CausalConv1D(
-            n_outputs, kernel_size, strides=strides, 
-            dilation_rate=dilation_rate, activation=tf.nn.relu, 
-            name="conv2")
-        self.down_sample = None
-
-    
-    def build(self, input_shape):
-        channel_dim = 2
-        self.dropout1 = tf.layers.Dropout(self.dropout, [tf.constant(1), tf.constant(1), tf.constant(self.n_outputs)])
-        self.dropout2 = tf.layers.Dropout(self.dropout, [tf.constant(1), tf.constant(1), tf.constant(self.n_outputs)])
-        if input_shape[channel_dim] != self.n_outputs:
-            self.down_sample = tf.layers.Dense(self.n_outputs, activation=None)
-    
-    def call(self, inputs, training=True):
-        x = self.conv1(inputs)
-        x = tf.contrib.layers.layer_norm(x)
-        x = self.dropout1(x, training=training)
-        x = self.conv2(x)
-        x = tf.contrib.layers.layer_norm(x)
-        x = self.dropout2(x, training=training)
-        x = tfp.layers.DistributionLambda(make_distribution_fn=lambda t: tfd.Normal(loc=t, scale=1))(x)
-        x = tf.contrib.layers.layer_norm(x)
-        x = tf.layers.dense(inputs=x,units=3)
-        #if self.down_sample is not None:
-        #    inputs = self.down_sample(inputs)
-        return tf.nn.relu(x)
-
-
+def build_model(observed_time_series):
+  trend = sts.LocalLinearTrend(observed_time_series=observed_time_series)
+  seasonal = tfp.sts.Seasonal(
+      num_seasons=int(len(dataset)/janela), observed_time_series=observed_time_series)
+  model = sts.Sum([trend, seasonal], observed_time_series=observed_time_series)
+  return model
 
 tf.reset_default_graph()
-graph = tf.Graph()
-with graph.as_default():
-    tf.set_random_seed(2)
+series_model = build_model(X0)
+
+# Build the variational loss function and surrogate posteriors `qs`.
+with tf.variable_scope('sts_elbo', reuse=tf.AUTO_REUSE):
+  elbo_loss, variational_posteriors = tfp.sts.build_factored_variational_loss(
+      series_model,
+      observed_time_series=X0)
+  
+num_variational_steps = 200 # @param { isTemplate: true}
+num_variational_steps = int(num_variational_steps)
+
+train_vi = tf.train.AdamOptimizer(0.1).minimize(elbo_loss)
+
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+    for i in range(num_variational_steps):
+        _, elbo_ = sess.run((train_vi, elbo_loss))
+        if i % 20 == 0:
+            print("step {} -ELBO {}".format(i, elbo_))
+    # Draw samples from the variational posterior.
+    samples = sess.run({k: q.sample(50) for k, q in variational_posteriors.items()})
+
+
+component_dists = sts.decompose_by_component(
+    series_model,
+    observed_time_series=X0,
+    parameter_samples=samples)
+
+
+with tf.Session() as sess:
+  series_component_means_, series_component_stddevs_ = sess.run(
+      [{k.name: c.mean() for k, c in component_dists.items()},
+       {k.name: c.stddev() for k, c in component_dists.items()}])
+
+component_means_dict=series_component_means_ 
+component_stddevs_dict=series_component_stddevs_
     
-    X = tf.placeholder("float", [None, look_back,1])
-    Y = tf.placeholder("float", [None, num_classes])
-    is_training = tf.placeholder("bool")
-    
-    logits = tf.layers.dense(
-        TemporalConvNet([num_hidden] * levels, kernel_size, dropout)(
-            X, training=is_training),
-        num_classes, activation=None, 
-        kernel_initializer=tf.glorot_uniform_initializer()
-    )
-    print(logits)
+import collections
 
-    mm,_=tf.nn.moments(tf.reshape(tf.nn.relu(logits),[-1,look_back]),axes=[1])
-    prediction=tf.nn.relu(logits)
-    
-    prediction2 = tf.reshape(tf.cast(mm,tf.float32),[-1,1])
-    
-    loss_op = tf.reduce_mean(tf.losses.mean_squared_error(
-        labels=Y,predictions=prediction2))
-    
-    accuracy=1-tf.sqrt(loss_op)
+axes_dict = collections.OrderedDict()
+num_components = len(component_means_dict)
+fig = plt.figure(figsize=(12, 2.5 * num_components))
+for i, component_name in enumerate(component_means_dict.keys()):
+    component_mean = component_means_dict[component_name]
+    component_stddev = component_stddevs_dict[component_name]
 
-    optimizer = tf.train.AdamOptimizer(learning_rate=0.001)
-    train_op = optimizer.minimize(loss_op)
+    ax = fig.add_subplot(num_components,1,1+i)
+    ax.plot(np.arange(0,len(X0)), component_mean,lw=2)    
 
+from statsmodels.tsa.seasonal import seasonal_decompose
 
-    saver = tf.train.Saver()
-    print("All parameters:", np.sum([np.product([xi.value for xi in x.get_shape()]) for x in tf.global_variables()]))
-    print("Trainable parameters:", np.sum([np.product([xi.value for xi in x.get_shape()]) for x in tf.trainable_variables()]))
+decomposition = seasonal_decompose(X0,freq=janela)
 
-def next_batch(num, data, labels):
-    idx = np.arange(0 , len(data))
-    np.random.shuffle(idx)
-    idx = idx[:num]
-    data_shuffle = [data[ i] for i in idx]
-    labels_shuffle = [labels[ i] for i in idx]
-    return np.asarray(data_shuffle).astype(np.float32), np.asarray(labels_shuffle).astype(np.float32)
+trend = decomposition.trend
+seasonal = decomposition.seasonal
+residual = decomposition.resid
 
-log_dir = "/home/rubens/Documents/Dados/"
-tb_writer = tf.summary.FileWriter(log_dir, graph)
-config = tf.ConfigProto()
-config.gpu_options.allow_growth = False
-config.gpu_options.per_process_gpu_memory_fraction = 0.7
-best_val_acc = 0.87
+z=np.where(seasonal==min(seasonal))[0]
+period=z[2]-z[1]
+print(period)
 
-training_epochs = 6000
-batch_size = X0.shape[0]
+plt.figure(figsize=(8,8))
+plt.subplot(411)
+plt.plot(X0, label='Original')
+plt.legend(loc='upper left')
+plt.subplot(412)
+plt.plot(trend, label='Trend',color='red')
+plt.legend(loc='upper left')
+plt.subplot(413)
+plt.plot(seasonal,label='Seasonality',color='green')
+plt.legend(loc='upper left')
+plt.subplot(414)
+plt.plot(residual, label='Residuals',color='black')
+plt.legend(loc='upper left')
+plt.tight_layout()
 
 
-X0=X0.reshape(-1,look_back,1)
-testX=testX.reshape(-1,look_back,1)
+print("Inferred parameters:")
+for param in series_model.parameters:
+    print("{}: {} +- {}".format(param.name,
+                              np.mean(samples[param.name], axis=0),
+                              np.std(samples[param.name], axis=0)))
+num_forecast_steps=12
+series_forecast_dist = tfp.sts.forecast(
+    series_model,
+    observed_time_series=X0,
+    parameter_samples=samples,
+    num_steps_forecast=num_forecast_steps)
 
-with tf.Session(graph=graph, config=config) as sess:
-    init = tf.group(tf.global_variables_initializer(), tf.local_variables_initializer())
-    sess.run(init)
-    for step in range(1, training_epochs+1):
-        Xt, Yt = next_batch(batch_size, X0, Y0)
-        batch_x, batch_y = Xt,Yt
-        sess.run(train_op, feed_dict={X: batch_x, Y: batch_y, is_training: True})
-        if step % display_step == 0 or step == 1:
-            loss, acc = sess.run([loss_op, accuracy], feed_dict={
-                X: batch_x, Y: batch_y, is_training: False})
-            test_data = testX
-            test_label = testY
-            val_acc = sess.run(accuracy, feed_dict={X: test_data, Y: test_label, is_training: False})
-            print("Step " + str(step) + ", Minibatch Loss= " + \
-                  "{:.4f}".format(loss) + ", Training Accuracy= " + \
-                  "{:.4f}".format(acc) + ", Test Accuracy= " + \
-                  "{:.4f}".format(val_acc))
-            if val_acc > best_val_acc:
-                best_val_acc = val_acc
-                save_path = saver.save(sess, "/home/rubens/Documents/Dados/model.ckpt")
-                print("Model saved in path: %s" % save_path)
-    pred00 = sess.run([prediction], feed_dict={X: test_data, is_training: False})
-    pred01 = sess.run([prediction2], feed_dict={X: test_data, is_training: False})
+series_forecast_dist
 
+num_samples=10
 
-with tf.Session(graph=graph, config=config) as session:
-    ckpt = "/home/rubens/Documents/Dados/model.ckpt"
-    saver.restore(session, ckpt)
-    pred00 = session.run([prediction], feed_dict={X: test_data, is_training: False})
-    pred01 = session.run([prediction2], feed_dict={X: test_data, is_training: False})
+with tf.Session() as sess:
+  series_forecast_mean, series_forecast_scale, series_forecast_samples = sess.run(
+      (series_forecast_dist.mean()[..., 0],
+       series_forecast_dist.stddev()[..., 0],
+       series_forecast_dist.sample(num_samples)[..., 0]))
 
+x=np.linspace(0,len(X0),len(X0))
+num_steps = len(X0)
+num_steps_forecast = series_forecast_mean.shape[-1]
+num_steps_train = num_steps - num_steps_forecast
+forecast_steps = np.arange(
+      x[num_steps_train],
+      x[num_steps_train]+num_steps_forecast,
+      dtype=x.dtype)
 
-import matplotlib.pyplot as plt
-plt.plot(np.array(pred01).reshape(-1,1))
-plt.plot(np.array(testY).reshape(-1,),c='black')
-plt.xlabel('Months')
+plt.figure(figsize=(10,7))
+plt.plot(forecast_steps,Y0,color='red',label='ground truth',lw=3)
+plt.plot(forecast_steps, series_forecast_samples.T, lw=1,ls='--',color='black', alpha=0.45)
+plt.plot(forecast_steps, series_forecast_mean, lw=2, ls='--', color='blue',label='forecast')
+plt.legend(loc=2,prop={'size': 14})
+plt.xlabel('Weeks')
 plt.ylabel('Sales')
+plt.title('Sales Forecast Next 12 Weeks')
 plt.show()
 
-x=list(range(0,len(pred00[0])))
-y1=np.array(pred01).reshape(1,-1)[0]+np.linspace(1,2,len(testY))*np.std(np.array(pred01).reshape(1,-1))
-y2=np.array(pred01).reshape(1,-1)[0]-np.linspace(1,2,len(testY))*np.std(np.array(pred01).reshape(1,-1))
-fig, ax1 = plt.subplots(1, 1, sharex=True)
-ax1.plot(np.array(pred01).reshape(1,-1)[0],'--',color='blue',alpha=0.5)
-ax1.fill_between(x, y1, y2,color='blue',alpha=0.3)
-ax1.plot(x,np.array(testY).reshape(-1,),c='red')
-plt.xlabel('Months')
-plt.ylabel('Sales')
-plt.show()
+
+#plt.figure(figsize=(10,7))
+#plt.plot(np.linspace(0,len(X0),len(X0)+12),np.concatenate([X0,Y0],axis=0),color='red',label='ground truth',lw=3)
+#plt.plot(forecast_steps, series_forecast_samples.T, lw=1,ls='--',color='black', alpha=0.45)
+##plt.plot(np.array(list(np.linspace(0,len(X0),len(X0)+12))*10).reshape(-1,144), np.concatenate([np.array(list(X0.T[0])*10).reshape(10,-1).T,series_forecast_samples.T],axis=0).T, lw=1,ls='--',color='black', alpha=0.45)
+#plt.plot(forecast_steps, series_forecast_mean, lw=2, ls='--', color='blue',label='forecast')
+#plt.legend(loc=2,prop={'size': 14})
+#plt.title('Sales Forecast Next 12 Weeks')
+#plt.show()
