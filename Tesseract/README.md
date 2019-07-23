@@ -7,6 +7,8 @@ $ sudo apt install libtesseract-dev
 ```  
 ```
 $ sudo vi /etc/ImageMagick-6/policy.xml
+
+$ identify -list resource
 ```  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tesseract/Pics/tesseract.PNG>  
