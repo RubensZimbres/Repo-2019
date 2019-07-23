@@ -1,4 +1,4 @@
-# Tesseract + Text-To-Speech API  
+# PDF - Tesseract + Text-To-Speech API  
 
 ```
 $ sudo apt update
