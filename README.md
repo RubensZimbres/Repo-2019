@@ -12,6 +12,10 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Spark/Pull_request_MS/Azure_Pull_Request.png>  
 
+<b>Time Series Forecasting with Tensorflow Probability</b>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/raw/master/Tensorflow/pics/Sales_Forecast_2.png>
+
 <b>Mind Controlled Apparatus</b>    
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/muse0.JPG>
