@@ -24,6 +24,8 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Mind-Controlled-Apparatus/Pics/MRI_reconstruction.png>  
 
+<img src=https://github.com/RubensZimbres/Repo-2019/raw/master/Mind-Controlled-Apparatus/Image-reconstruction-from-brain-waves/muse_dog.jpg>  <img src=https://github.com/RubensZimbres/Repo-2019/raw/master/Mind-Controlled-Apparatus/Image-reconstruction-from-brain-waves/reconstruct.png>
+
 <b>Infrared Raspberry Pi3</b>  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Raspberry-Infrared/Pics/rasp_2_infrared.png>  
