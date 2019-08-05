@@ -113,6 +113,8 @@ $ python run_squad.py --bert_config_file=gs://tpu-large/bert_config.json --vocab
 This will create a JSON file (one line per line of input) containing the BERT activations from each Transformer layer specified by layers (-1 is the final hidden layer of the Transformer, etc.)
 
 ```
+$ pip uninstall tensorflow_estimator
+$ pip install -Iv tensorflow_estimator==1.13.0
 $ echo 'Alicia Silverstone went to the beach ||| Alicia is an actress' > input.txt
 
 $ python extract_features.py --input_file=input.txt --output_file=/home/rubensvectomobile/BERT/bert/output.json  
