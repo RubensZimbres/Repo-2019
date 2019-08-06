@@ -6,9 +6,14 @@ $ pip3 install pandas-datareader
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/Time-Series/Pics/version.PNG>  
 
+<b>IBOVESPA Index</b>:  
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/Time-Series/Pics/IBOV_0.PNG>  
 
+<b>Predictions Training Set</b>:  
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/Time-Series/Pics/bovespa3.PNG>  
+
+<b>Predictions Test Set</b>:  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/Time-Series/Pics/previsao.PNG>  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/ARIMA.png>
 
