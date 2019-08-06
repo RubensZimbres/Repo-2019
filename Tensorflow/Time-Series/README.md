@@ -8,7 +8,7 @@ $ pip3 install pandas-datareader
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/Time-Series/Pics/IBOV_0.PNG>  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/Time-Series/Pics/IBOV_0.PNG>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/Time-Series/Pics/bovespa3.PNG>  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/pics/ARIMA.png>
 
