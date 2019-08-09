@@ -28,6 +28,7 @@ Create first_dag.py and second_dag.py inside /airflow/dags/ and
 
 ```
 $ airflow scheduler -D
+$ pip install Flask==1.1.1
 $ airflow webserver -p 8888
 ```  
 
