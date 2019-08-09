@@ -32,4 +32,4 @@ $ pip install Flask==1.1.1
 $ airflow webserver -p 8888
 ```  
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Airflow/Pics/airflow3.png>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Airflow/Pics/airflow22.png>  
