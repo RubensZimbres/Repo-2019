@@ -22,6 +22,8 @@ load_examples = False
 $ airflow initdb
 ```  
 
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Airflow/Pics/ariflow1.png>  
+
 Create first_dag.py and second_dag.py inside /AIRFLOW_HOME/dags/etl_scripts and 
 
 ```
@@ -29,4 +31,4 @@ $ airflow scheduler -D
 $ airflow webserver -p 8888
 ```  
 
-<img src=>  
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Airflow/Pics/ariflow3.png>  
