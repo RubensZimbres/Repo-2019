@@ -16,4 +16,6 @@ $ USE DadosTese; CREATE TABLE tabela (c0_objetivos VARCHAR(255),	c0_responsab  V
 
 https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.17-winx64.msi
 
-<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-MySQL/Pics/mysql01.png>
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-MySQL/Pics/mysql01.png>  
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Google-Cloud-MySQL/Pics/mysql_03.png>  
