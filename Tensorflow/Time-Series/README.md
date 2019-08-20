@@ -5,6 +5,7 @@ $ pip3 install pandas-datareader
 
 $ 7z x file.zip -o./directory
 
+$ echo 1 > /proc/sys/vm/overcommit_memory
 ```
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/Time-Series/Pics/version.PNG>  
