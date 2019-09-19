@@ -8,6 +8,11 @@ $ 7z x file.zip -o./directory
 $ echo 1 > /proc/sys/vm/overcommit_memory
 ```
 
+```
+apple_stock=pd.read_html('https://finance.yahoo.com/quote/AAPL?p-AAPL')
+pd.concat([apple_stock[0],apple_stock[1])
+```
+
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Tensorflow/Time-Series/Pics/version.PNG>  
 
 <b>IBOVESPA Index</b>:  
