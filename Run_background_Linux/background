@@ -1,0 +1,5 @@
+```
+$ sudo python3 script.py &> /home/rubens/script/output.log &
+
+$ sudo tail -f home/rubens/script/output.log
+```
