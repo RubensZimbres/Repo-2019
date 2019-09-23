@@ -9,7 +9,7 @@ from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Convolution2D, MaxPooling2D
-from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D, UpSampling2D,Convolution1D
+from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D, UpSampling2D,Convolution1D,MaxPooling1D
 from keras.utils import np_utils
 from keras.layers.normalization import BatchNormalization
 from keras.callbacks import ModelCheckpoint,LearningRateScheduler
@@ -57,6 +57,8 @@ with session.as_default():
         denoise_left=BatchNormalization()(denoise_left)
         denoise_left=Activation('sigmoid')(denoise_left)
         denoise_left=Dense(20)(denoise_left)
+        denoise_left=Reshape((-1,20,1))(denoise_left)
+        denoise_left=Flatten()(denoise_left)
 
         denoise_left1=Convolution2D(20, 3,3,
                                 border_mode='same',
@@ -83,30 +85,29 @@ with session.as_default():
         denoise_left1=BatchNormalization()(denoise_left1)
         denoise_left1=Activation('sigmoid')(denoise_left1)
         denoise_left1=Dense(20)(denoise_left1)
-
+        denoise_left1=Reshape((-1,20,1))(denoise_left1)
+        denoise_left1=Flatten()(denoise_left1)
+        
         denoise_concat=Dense(20)(input_img2)
         denoise_concat=Activation('relu')(denoise_concat)
         denoise_concat=Dense(20)(denoise_concat)
         denoise_concat=Activation('relu')(denoise_concat)
-        denoise_concat=Dense(1)(denoise_concat)
-        
-        squeeze0=Concatenate()([denoise_left,denoise_left1])
-        squeeze0=Dropout(0.2)(squeeze0)
-        squeeze0=MaxPooling2D(pool_size=(2,2))(squeeze0)
-        squeeze0=Flatten()(squeeze0)
-        squeeze0=Dense(4)(squeeze0)
-        #squeeze0=Concatenate()([squeeze0,denoise_concat])
+        denoise_concat=Dense(4)(denoise_concat)
+        denoise_concat=Reshape((-1,4,1))(denoise_concat)
+        denoise_concat=Flatten()(denoise_concat)
 
+        squeeze0=Concatenate()([denoise_left,denoise_left1,denoise_concat])
+        squeeze0=Dropout(0.2)(squeeze0)
+        squeeze0=Dense(20)(squeeze0)
         squeeze0=Activation('sigmoid')(squeeze0)
         squeeze0=Dense(2)(squeeze0)
         squeeze0=Activation('sigmoid')(squeeze0)
 
-        model = Model(inputs = [input_img,input_img1], outputs = squeeze0)
+        model = Model(inputs = [input_img,input_img1,input_img2], outputs = squeeze0)
 
         model.compile(loss='categorical_crossentropy', optimizer=sgd,metrics = ['accuracy'])
 
-        model.summary()
-        
+        model.summary()        
         
 from keras.utils import plot_model 
 plot_model(model, to_file='model_gif.png')
