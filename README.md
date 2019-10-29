@@ -30,6 +30,10 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Raspberry-Infrared/Pics/rasp_2_infrared.png>  
 
+<b>Knowledge Graphs</b>    
+
+<img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Knowledge_Graphs/knowledge_graphs.PNG>  
+
 <b>Isolation Forest</b> for outlier/anomaly detection  
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Anomaly-Detection/isolation.jpg>  
