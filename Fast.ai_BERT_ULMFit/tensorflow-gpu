@@ -4,7 +4,7 @@ sudo conda install -c anaconda cudatoolkit
 #NVIDIA drivers up-to-date
 Open up /etc/apt/sources.list in you favorite text editor as root, and add contrib non-free to the end of every line after main
 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 6494C6D6997C215E
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 6494ABCDEF
 sudo apt-get clean && sudo apt-get update
 sudo apt-get upgrade
 sudo apt install llvm-3.9 clang-3.9
