@@ -16,3 +16,6 @@ sudo dpkg --add-architecture i386
 sudo apt-get install aptitude
 sudo aptitude install firmware-linux nvidia-driver nvidia-settings nvidia-xconfig
 nvidia-xconfig
+
+# OR
+wget gs://nvidia-drivers-us-public/tesla/410.104/NVIDIA-Linux-x86_64-410.104.run
