@@ -1,2 +1,2 @@
-conda install -c anaconda tensorflow-gpu
+sudo conda install -c anaconda tensorflow-gpu
 
