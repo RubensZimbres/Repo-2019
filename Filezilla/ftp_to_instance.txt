@@ -1,0 +1,3 @@
+wget -r --no-check-certificate --no-passive --no-parent 'ftpS://user:pass@IP:port/folder'
+
+gsutil -r /folder gs://folder121
