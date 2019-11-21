@@ -62,7 +62,7 @@ alertas_atendente=pd.read_csv('gs://fast-ai-gif/atendente_words_1_test_ok.csv',s
 
 print(alertas_atendente.iloc[:,0])
 
-alertas_atendente.iloc[:,0].to_csv('alertas_embed.txt', index=None,sep=',')
+alertas_atendente.iloc[:,0].to_csv('alertas_embed1.txt', index=None,sep=',')
 
 from pytorch_pretrained_bert import BertModel
 model = BertModel.from_pretrained('bert-base-multilingual-uncased')
@@ -71,9 +71,7 @@ print(model.embeddings.word_embeddings)
 import extract_direto as extrair
 
 embeddings=extrair.Main()
-embeddings.main(input_file='alertas_embed.txt',output_file='/home/rubensvectomobile_gmail_com/alertas2.json')
-
-###### OR
+embeddings.main(input_file='texto.txt',output_file='texto.json')
 
 #import os
 #os.system('python3 extract.py --input_file=alertas_embed.txt --output_file=/home/rubensvectomobile_gmail_com/alertas.json --bert_model=bert-base-multilingual-uncased --max_seq_length=128 --batch_size=16')
