@@ -58,7 +58,7 @@ fastai_bert_vocab = Vocab(list(bert_token.vocab.keys()))
 print(fastai_bert_vocab)
 
 import pandas as pd
-alertas_atendente=pd.read_csv('gs://fast-ai-gif/atendente_words_1_test_ok.csv',sep=',')
+alertas_atendente=pd.read_csv('gs://fast-ai-gif/words_1_test_ok.csv',sep=',')
 
 print(alertas_atendente.iloc[:,0])
 
