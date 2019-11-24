@@ -8,6 +8,13 @@
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/OpenAI-GPT-2/PIcs/gpt-2_4.1.JPG>  
 
+# Graph Neural Networks in Tensorflow  
+
+<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Graph_Networks/graphs0.png>  
+
+<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/Graph_Networks/graph.png>  
+
+
 <b>Pull Request to Microsoft's PySpark Predictive Maintenance model</b>    
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/Spark/Pull_request_MS/Azure_Pull_Request.png>  
