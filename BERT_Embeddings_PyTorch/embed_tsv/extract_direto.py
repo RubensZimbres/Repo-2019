@@ -152,7 +152,7 @@ def read_examples(input_file):
     """Read a list of `InputExample`s from an input file."""
     examples = []
     unique_id = 0
-    with open(input_file, "r", encoding='utf-8') as reader:
+    with open(input_file, "r", encoding='latin-1') as reader:
         while True:
             line = reader.readline()
             if not line:
@@ -175,10 +175,10 @@ class Main:
     def main(self,input_file,output_file):
         self.input_file=input_file
         self.output_file=output_file
-        self.bert_model='bert-base-multilingual-uncased'
+        self.bert_model='bert-base-multilingual-cased'
         self.do_lower_case=True
         self.layers="-1"
-        self.max_seq_length=128
+        self.max_seq_length=64
         self.batch_size=32
         self.local_rank=-1
         self.no_cuda=False
