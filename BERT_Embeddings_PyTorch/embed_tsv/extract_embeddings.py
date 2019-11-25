@@ -58,20 +58,20 @@ fastai_bert_vocab = Vocab(list(bert_token.vocab.keys()))
 print(fastai_bert_vocab)
 
 import pandas as pd
-alertas_atendente=pd.read_csv('gs://fast-ai-gif/words_1_test_ok.csv',sep=',')
+alertas_atendente=pd.read_csv('gs://fast-ai-gif/atendente_words_1_test_ok.csv',sep=',')
 
 print(alertas_atendente.iloc[:,0])
 
-alertas_atendente.iloc[0:5,0].to_csv('dataframe.tsv', index=None,sep=',')
+#alertas_atendente.iloc[0:5,0].to_csv('dataframe.tsv', index=None,sep=',')
 
 from pytorch_pretrained_bert import BertModel
-model = BertModel.from_pretrained('bert-base-multilingual-uncased')
+model = BertModel.from_pretrained('bert-base-multilingual-cased')
 print(model.embeddings.word_embeddings)
 
 import extract_direto as extrair
 
 embeddings=extrair.Main()
-embeddings.main(input_file='dataframe.tsv',output_file='texto3.json')
+embeddings.main(input_file='gensim.csv',output_file='gensim.json')
 
 #import os
 #os.system('python3 extract.py --input_file=alertas_embed.txt --output_file=/home/rubensvectomobile_gmail_com/alertas.json --bert_model=bert-base-multilingual-uncased --max_seq_length=128 --batch_size=16')
