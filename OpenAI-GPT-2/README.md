@@ -42,3 +42,8 @@ $ gsutil cp /home/gpt-2/* gs://gpt-2-storage
 
 <img src=https://github.com/RubensZimbres/Repo-2019/blob/master/OpenAI-GPT-2/PIcs/gpt-2-03.png>  
 
+# Aminoacid Sequence Generation  
+
+https://www.ebi.ac.uk/ena/data/view/AE014298  
+
+<img src=https://raw.githubusercontent.com/RubensZimbres/Repo-2019/master/OpenAI-GPT-2/PIcs/AA_GPT2.jpg>
