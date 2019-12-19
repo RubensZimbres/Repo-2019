@@ -1,5 +1,7 @@
 ### Google Cloud Datastore
 
+# SAVE
+
 import json
 
 data = {}
@@ -11,3 +13,9 @@ json.loads(json_data)
 import codecs, json
 with codecs.open('data.json', 'w', 'utf8') as f:
      f.write(json.dumps(data,ensure_ascii=False))
+
+# OPEN
+
+with open('strings.json') as f:
+    d = json.load(f)
+    print(d)
