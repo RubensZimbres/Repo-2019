@@ -1,3 +1,7 @@
+## ffmpeg -i input.mp3 -ac 1 -ab 8k output.wav
+
+
+
 import time
 start=time.time()
 
@@ -33,7 +37,7 @@ config = speech.types.RecognitionConfig(
     profanity_filter=True,
     enable_separate_recognition_per_channel=False)
 
-audio=speech.types.RecognitionAudio(uri="gs://temp/audio_latcom3.wav")
+audio=speech.types.RecognitionAudio(uri="gs://temp/audio.wav")
 
 operation = client.long_running_recognize(config, audio)
 
