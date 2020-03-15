@@ -1,0 +1,1 @@
+python ./deploy.py --board=nrf52840_dongle --no-app --programmer=pyocd
