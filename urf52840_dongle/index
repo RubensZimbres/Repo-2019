@@ -1,5 +1,4 @@
 ./deploy.py --board=nrf52840_dongle_dfu --no-app --programmer=nordicdfu ## pc_ble_driver_py>=0.14.1
 
 
-./deploy.py --board=nrf52840_dongle_dfu --opensk --programmer=nordicdfu ## pc_ble_driver_py>=0.14.1
-
+./deploy.py --board=nrf52840_dongle_dfu --opensk --programmer=nordicdfu ## libtock
