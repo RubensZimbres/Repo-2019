@@ -1,0 +1,16 @@
+Interpreter /home/anaconda3/bin/Python3.7
+
+Base conda
+
+(base) theone@theone-Inspiron-5566:/home/anaconda3/work$
+
+setings.json
+
+{
+    "jupyter.alwaysTrustNotebooks": true,
+    "python.cwd": "/home/anaconda3",
+    "python.defaultInterpreterPath": "/home/anaconda3/bin/python3.7",
+    "python.pythonPath": "/home/anaconda3",
+    
+}
+
