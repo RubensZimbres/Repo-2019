@@ -4,6 +4,8 @@ git config --global user.email "email@mail.com"
 
 git init
 
+git add README.md
+
 git config --global http.postBuffer 524288000
 
 git remote add origin https://github.com/RubensZimbres/TestePush
