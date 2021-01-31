@@ -2,6 +2,8 @@ git config --global user.name "username"
 
 git config --global user.email "email@mail.com"
 
+rm -rf .git
+
 git init
 
 git add README.md
