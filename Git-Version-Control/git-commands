@@ -16,7 +16,7 @@ git pull
 
 git status
 
-git add Hello1.py
+git add .
 
 git commit -m "initial commit"
 
